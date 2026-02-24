@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testează-ți site-ul gratuit — Alexandru Ghita</title>
+  <meta name="description" content="Analiză gratuită în 30 de secunde. Află exact ce probleme de viteză, SEO și mobile îți opresc clienții." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* ── Audit Hero ─────────────────────────────────────────── */
+    .audit-hero {
+      padding: 140px 0 80px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .audit-hero h1 {
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+    .audit-hero > .container > p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+    .audit-form {
+      display: flex;
+      gap: 10px;
+      max-width: 580px;
+      margin: 0 auto 14px;
+    }
+    .audit-input {
+      flex: 1;
+      font-family: var(--font);
+      font-size: 15px;
+      padding: 14px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .audit-input:focus { border-color: var(--gold); }
+    .audit-input::placeholder { color: var(--subtle); }
+    .audit-note {
+      font-size: 13px;
+      color: var(--subtle);
+    }
+    .audit-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Loading ─────────────────────────────────────────────── */
+    .audit-loading {
+      display: none;
+      padding: 96px 0;
+      text-align: center;
+    }
+    .audit-loading.active { display: block; }
+    .loading-spinner {
+      width: 44px; height: 44px;
+      border: 3px solid var(--border);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+      margin: 0 auto 24px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 300;
+      min-height: 26px;
+      transition: opacity 0.3s;
+    }
+    .loading-url {
+      font-size: 13px;
+      color: var(--subtle);
+      margin-top: 8px;
+    }
+
+    /* ── Error ───────────────────────────────────────────────── */
+    .audit-error {
+      display: none;
+      padding: 64px 0;
+      text-align: center;
+    }
+    .audit-error.active { display: block; }
+    .audit-error h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ef4444;
+    }
+    .audit-error p {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    /* ── Results ─────────────────────────────────────────────── */
+    .audit-results {
+      display: none;
+      padding: 64px 0 96px;
+    }
+    .audit-results.active { display: block; }
+    .result-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .result-url-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    /* ── Scores ──────────────────────────────────────────────── */
+    .scores-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+    .score-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 16px 22px;
+      text-align: center;
+      background: var(--bg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .score-card:hover {
+      border-color: rgba(244,168,37,0.3);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .score-circle-wrap {
+      position: relative;
+      width: 88px; height: 88px;
+      margin: 0 auto 14px;
+    }
+    .score-svg {
+      width: 88px; height: 88px;
+      transform: rotate(-90deg);
+    }
+    .score-track {
+      fill: none;
+      stroke: #ebebeb;
+      stroke-width: 3;
+    }
+    .score-fill {
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      transition: stroke-dasharray 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .score-value {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .score-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+
+    /* ── Issues ──────────────────────────────────────────────── */
+    .issues-header {
+      margin-bottom: 28px;
+    }
+    .issues-header h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .issues-header p {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .audit-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 26px;
+      background: var(--bg);
+    }
+    .audit-card.high { border-left: 3px solid #ef4444; }
+    .audit-card.medium { border-left: 3px solid var(--gold); }
+    .audit-impact {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .audit-card.high .audit-impact { color: #ef4444; }
+    .audit-card.medium .audit-impact { color: #a06800; }
+    .impact-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .audit-card.high .impact-dot { background: #ef4444; }
+    .audit-card.medium .impact-dot { background: var(--gold); }
+    .audit-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .audit-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .audit-savings {
+      font-size: 12px;
+      color: var(--subtle);
+      margin-bottom: 10px;
+    }
+    .audit-fix {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .audit-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      background: rgba(244,168,37,0.1);
+      color: #9a6200;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── No issues ───────────────────────────────────────────── */
+    .audit-all-good {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .audit-all-good h3 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .audit-all-good p {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── CTA ─────────────────────────────────────────────────── */
+    .audit-cta-box {
+      background: var(--text);
+      color: #fff;
+      border-radius: 16px;
+      padding: 44px 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+    .audit-cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .audit-cta-box p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .audit-cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .btn-outline-white {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.5); }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .scores-grid { grid-template-columns: repeat(2, 1fr); }
+      .issues-grid { grid-template-columns: 1fr; }
+      .audit-cta-box {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
+      .audit-form { flex-direction: column; }
+      .audit-form .btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .audit-hero { padding: 100px 0 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">AG<span class="nav-dot">.</span></a>
+    <ul>
+      <li><a href="/#servicii">Servicii</a></li>
+      <li><a href="/#portofoliu">Portofoliu</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="audit-hero" id="auditHero">
+      <div class="container">
+        <div class="audit-badges">
+          <span class="badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            100% gratuit
+          </span>
+          <span class="badge">Fără cont necesar</span>
+          <span class="badge">Rezultate în 30 secunde</span>
+        </div>
+        <h1>Cât de bun este<br><span class="accent">site-ul tău?</span></h1>
+        <p>Introduci URL-ul și în 30 de secunde îți spun exact ce probleme îl țin pe loc — viteză, SEO, mobil.</p>
+        <form class="audit-form" id="auditForm">
+          <input
+            type="url"
+            class="audit-input"
+            id="urlInput"
+            placeholder="https://site-ul-tau.ro"
+            autocomplete="url"
+            spellcheck="false"
+          />
+          <button type="submit" class="btn btn-primary">Analizează →</button>
+        </form>
+        <p class="audit-note">Analiza rulează prin Google PageSpeed. Zero date stocate.</p>
+      </div>
+    </section>
+
+    <!-- Loading -->
+    <section class="audit-loading" id="auditLoading">
+      <div class="container">
+        <div class="loading-spinner"></div>
+        <p class="loading-text" id="loadingText">Analizăm viteza paginii...</p>
+        <p class="loading-url" id="loadingUrl"></p>
+      </div>
+    </section>
+
+    <!-- Error -->
+    <section class="audit-error" id="auditError">
+      <div class="container">
+        <h3 id="errorTitle">Nu am putut analiza site-ul</h3>
+        <p id="errorMsg">Verifică URL-ul și încearcă din nou.</p>
+        <button class="btn btn-outline" onclick="resetForm()">← Încearcă din nou</button>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="audit-results" id="auditResults">
+      <div class="container">
+
+        <div class="result-meta">
+          <span class="result-url-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <strong id="resultUrl"></strong>
+          </span>
+          <button class="btn btn-outline" style="font-size:12px;padding:5px 14px;" onclick="resetForm()">← Testează alt URL</button>
+        </div>
+
+        <!-- Score circles -->
+        <div class="scores-grid" id="scoresGrid"></div>
+
+        <!-- Issues list -->
+        <div id="issuesContainer"></div>
+
+        <!-- CTA -->
+        <div class="audit-cta-box" id="auditCta" style="display:none;">
+          <div>
+            <h3 id="ctaTitle">Pot rezolva toate aceste probleme.</h3>
+            <p>Lucrezi direct cu mine, fără agenție. Îți răspund azi cu o estimare clară de preț și timp.</p>
+          </div>
+          <div class="audit-cta-actions">
+            <a id="ctaEmail" href="/#contact" class="btn btn-primary">Contactează-mă →</a>
+            <a href="https://wa.me/40723360305" target="_blank" rel="noopener" class="btn btn-outline-white btn">WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Alexandru Daniel Ghita / Timișoara / 2026</span>
+      <span class="footer-right">WordPress / WooCommerce / SEO / Booking</span>
+    </div>
+  </footer>
+
+  <script>
+    // ── Cursor ───────────────────────────────────────────────
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (window.matchMedia('(hover: none)').matches || window.innerWidth <= 768) {
+      dot.remove(); ring.remove();
+    } else {
+      let mx = -100, my = -100, rx = -100, ry = -100;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      (function animCursor() {
+        rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+        dot.style.transform = `translate(${mx}px, ${my}px)`;
+        ring.style.transform = `translate(${rx}px, ${ry}px)`;
+        requestAnimationFrame(animCursor);
+      })();
+      document.querySelectorAll('a, button, .audit-card').forEach(el => {
+        el.addEventListener('mouseenter', () => { dot.classList.add('cursor-grow'); ring.classList.add('cursor-grow'); });
+        el.addEventListener('mouseleave', () => { dot.classList.remove('cursor-grow'); ring.classList.remove('cursor-grow'); });
+      });
+    }
+
+    // ── Hamburger ──────────────────────────────────────────
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navEl = document.querySelector('nav');
+    hamburger.addEventListener('click', () => navEl.classList.toggle('nav-open'));
+    document.querySelectorAll('nav ul a').forEach(a => a.addEventListener('click', () => navEl.classList.remove('nav-open')));
+
+    // ── Audit map ─────────────────────────────────────────
+    const AUDIT_MAP = {
+      'render-blocking-resources': {
+        title: 'Pagina se încarcă lent din cauza scripturilor',
+        desc: 'Există fișiere CSS sau JS care blochează afișarea paginii. Vizitatorii văd un ecran gol câteva secunde.',
+        fix: '→ Optimizare fișiere → viteză cu 30–50% mai mare',
+        impact: 'high', badge: 'Rezolv în 1–2 zile'
+      },
+      'uses-optimized-images': {
+        title: 'Imaginile sunt prea grele',
+        desc: 'Imaginile nu sunt comprimate. Îngreunează pagina și îndepărtează vizitatorii nerăbdători.',
+        fix: '→ Conversie WebP + compresie → pagina de 2–3× mai rapidă',
+        impact: 'high', badge: 'Rezolv rapid'
+      },
+      'uses-responsive-images': {
+        title: 'Imagini prea mari pe mobil',
+        desc: 'Telefoanele descarcă imagini de dimensiuni desktop, consumând date inutil.',
+        fix: '→ Imagini responsive → experiență mai bună pe telefon',
+        impact: 'high', badge: 'Optimizare mobil'
+      },
+      'unminified-css': {
+        title: 'CSS-ul nu este optimizat',
+        desc: 'Fișierele de stil sunt necompresate și mai mari decât trebuie.',
+        fix: '→ Minificare CSS → timp de încărcare redus',
+        impact: 'medium', badge: 'Fix tehnic simplu'
+      },
+      'unminified-javascript': {
+        title: 'JavaScript-ul nu este optimizat',
+        desc: 'Codul JS nu este comprimat, adăugând greutate inutilă paginii.',
+        fix: '→ Minificare JS → performanță îmbunătățită',
+        impact: 'medium', badge: 'Fix tehnic simplu'
+      },
+      'uses-text-compression': {
+        title: 'Fișierele nu sunt comprimate pe server',
+        desc: 'Serverul nu folosește GZIP sau Brotli. Trimite mai multe date decât e necesar.',
+        fix: '→ Activare compresie → transfer de date redus cu 60–80%',
+        impact: 'high', badge: 'Configurare server'
+      },
+      'viewport': {
+        title: 'Site-ul nu este adaptat pentru mobil',
+        desc: 'Pagina nu are setările necesare pentru afișare corectă pe telefon sau tabletă.',
+        fix: '→ Fix simplu → vizibil perfect pe orice dispozitiv',
+        impact: 'high', badge: 'Rezolv în câteva ore'
+      },
+      'tap-targets': {
+        title: 'Butoanele sunt prea mici pe telefon',
+        desc: 'Vizitatorii de pe mobil nu pot apăsa ușor pe butoane. Frustrare = clienți pierduți.',
+        fix: '→ Redesign butoane mobile → mai mulți clienți de pe telefon',
+        impact: 'high', badge: 'Optimizare mobil'
+      },
+      'meta-description': {
+        title: 'Lipsesc descrierile pentru Google',
+        desc: 'Fără meta description, Google nu știe ce să afișeze în rezultate. Pierzi click-uri.',
+        fix: '→ Adăugare descrieri SEO → mai multe click-uri din Google',
+        impact: 'high', badge: 'SEO on-page'
+      },
+      'document-title': {
+        title: 'Titlul paginii este slab sau lipsește',
+        desc: 'Titlul este primul element pe care Google îl vede. Fără el, site-ul nu se indexează corect.',
+        fix: '→ Titluri optimizate per pagină → mai ușor de găsit',
+        impact: 'high', badge: 'SEO de bază'
+      },
+      'image-alt': {
+        title: 'Imagini fără descriere pentru Google',
+        desc: 'Imaginile fără text "alt" nu pot fi indexate de Google. Pierzi trafic din Google Images.',
+        fix: '→ Adăugare alt text → imagini indexate corect',
+        impact: 'medium', badge: 'SEO + accesibilitate'
+      },
+      'link-text': {
+        title: 'Link-uri fără text descriptiv',
+        desc: '"Click aici" sau "Citește mai mult" nu ajută Google să înțeleagă pagina.',
+        fix: '→ Text link optimizat → SEO îmbunătățit',
+        impact: 'medium', badge: 'SEO on-page'
+      },
+      'color-contrast': {
+        title: 'Text greu de citit',
+        desc: 'Unele texte au contrast insuficient față de fundal. Greu de citit pe ecrane sau în soare.',
+        fix: '→ Ajustare culori → UX și accesibilitate mai bune',
+        impact: 'medium', badge: 'Design fix'
+      },
+      'font-display': {
+        title: 'Textul întârzie să apară',
+        desc: 'Fonturile externe blochează afișarea textului. Pagina pare goală câteva momente.',
+        fix: '→ font-display: swap → text vizibil instant',
+        impact: 'medium', badge: 'Fix rapid'
+      },
+      'uses-long-cache-ttl': {
+        title: 'Resursele nu sunt salvate în cache',
+        desc: 'La fiecare vizită, browserul descarcă totul din nou. Lent pentru vizitatorii care revin.',
+        fix: '→ Cache configurat → reîncărcare de 5–10× mai rapidă',
+        impact: 'medium', badge: 'Configurare server'
+      },
+      'total-byte-weight': {
+        title: 'Pagina este prea grea',
+        desc: 'Totalul fișierelor descărcate depășește limitele recomandate, mai ales pe mobil.',
+        fix: '→ Optimizare generală → timp de încărcare redus semnificativ',
+        impact: 'high', badge: 'Optimizare completă'
+      },
+      'server-response-time': {
+        title: 'Serverul răspunde lent',
+        desc: 'Serverul procesează prea lent. Afectează direct scorul Google și experiența utilizatorilor.',
+        fix: '→ Caching server sau upgrade hosting → răspuns instant',
+        impact: 'high', badge: 'Infrastructură'
+      },
+      'cumulative-layout-shift': {
+        title: 'Elementele sar pe ecran în timp ce se încarcă',
+        desc: 'Conținutul se deplasează în timp ce pagina se încarcă. Frustrează vizitatorii, penalizat de Google.',
+        fix: '→ Fix layout shifts → pagină stabilă și profesionistă',
+        impact: 'high', badge: 'Core Web Vital'
+      },
+      'is-on-https': {
+        title: 'Site-ul nu are HTTPS (nesecurizat)',
+        desc: 'Browserele avertizează vizitatorii că site-ul nu este sigur. Google penalizează site-urile HTTP.',
+        fix: '→ Activare SSL → site securizat și credibil',
+        impact: 'high', badge: 'Securitate de bază'
+      },
+      'crawlable-anchors': {
+        title: 'Unele link-uri nu pot fi accesate de Google',
+        desc: 'Anumite link-uri nu sunt vizibile motoarelor de căutare, limitând indexarea site-ului.',
+        fix: '→ Fix link-uri → indexare completă în Google',
+        impact: 'medium', badge: 'SEO tehnic'
+      },
+      'structured-data': {
+        title: 'Lipsesc datele structurate',
+        desc: 'Fără Schema.org, Google nu poate afișa stele, prețuri sau alte informații rich în rezultate.',
+        fix: '→ Implementare Schema.org → mai multă vizibilitate în Google',
+        impact: 'medium', badge: 'SEO avansat'
+      },
+    };
+
+    // ── Helpers ───────────────────────────────────────────
+    function scoreColor(s) {
+      if (s >= 90) return '#22c55e';
+      if (s >= 50) return '#f4a825';
+      return '#ef4444';
+    }
+
+    function normalizeUrl(raw) {
+      raw = raw.trim();
+      if (!raw.startsWith('http://') && !raw.startsWith('https://')) raw = 'https://' + raw;
+      try { new URL(raw); return raw; } catch { return null; }
+    }
+
+    // ── Loading ───────────────────────────────────────────
+    const loadingMsgs = [
+      'Analizăm viteza paginii...', 'Verificăm SEO-ul...',
+      'Testăm pe mobil...', 'Inspectăm imaginile...',
+      'Verificăm structura HTML...', 'Analizăm accesibilitatea...',
+      'Se generează raportul...'
+    ];
+    let loadingTimer;
+
+    function startLoading(url) {
+      document.getElementById('auditLoading').classList.add('active');
+      document.getElementById('loadingUrl').textContent = url;
+      let i = 0;
+      const el = document.getElementById('loadingText');
+      el.textContent = loadingMsgs[0];
+      loadingTimer = setInterval(() => { i = (i + 1) % loadingMsgs.length; el.textContent = loadingMsgs[i]; }, 2600);
+    }
+
+    function stopLoading() {
+      clearInterval(loadingTimer);
+      document.getElementById('auditLoading').classList.remove('active');
+    }
+
+    function resetForm() {
+      document.getElementById('auditResults').classList.remove('active');
+      document.getElementById('auditError').classList.remove('active');
+      document.getElementById('auditLoading').classList.remove('active');
+      document.getElementById('auditHero').style.display = '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── Render ────────────────────────────────────────────
+    function renderResults(data, url) {
+      const cats = data.lighthouseResult.categories;
+      const audits = data.lighthouseResult.audits;
+
+      // Scores
+      const scoreMap = [
+        ['performance', 'Performanță'],
+        ['seo', 'SEO'],
+        ['accessibility', 'Accesibilitate'],
+        ['best-practices', 'Best Practices'],
+      ];
+      let scoresHtml = '';
+      for (const [key, label] of scoreMap) {
+        if (!cats[key]) continue;
+        const s = Math.round(cats[key].score * 100);
+        const c = scoreColor(s);
+        scoresHtml += `
+          <div class="score-card">
+            <div class="score-circle-wrap">
+              <svg viewBox="0 0 36 36" class="score-svg">
+                <circle class="score-track" cx="18" cy="18" r="15.9155"/>
+                <circle class="score-fill" cx="18" cy="18" r="15.9155"
+                  stroke="${c}" stroke-dasharray="0 100" data-score="${s}"/>
+              </svg>
+              <span class="score-value" style="color:${c}">${s}</span>
+            </div>
+            <span class="score-label">${label}</span>
+          </div>`;
+      }
+      document.getElementById('scoresGrid').innerHTML = scoresHtml;
+
+      // Issues
+      const high = [], medium = [];
+      for (const [id, info] of Object.entries(AUDIT_MAP)) {
+        const a = audits[id];
+        if (!a || a.score === null || a.score >= 0.9) continue;
+        const savings = a.displayValue ? `<p class="audit-savings">${a.displayValue}</p>` : '';
+        const card = `
+          <div class="audit-card ${info.impact}">
+            <div class="audit-impact"><span class="impact-dot"></span>Impact ${info.impact === 'high' ? 'ridicat' : 'mediu'}</div>
+            <h3>${info.title}</h3>
+            <p>${info.desc}</p>
+            ${savings}
+            <div class="audit-fix">${info.fix}</div>
+            <span class="audit-badge">${info.badge}</span>
+          </div>`;
+        info.impact === 'high' ? high.push(card) : medium.push(card);
+      }
+      const all = [...high, ...medium];
+
+      let issuesHtml = '';
+      if (all.length === 0) {
+        issuesHtml = `
+          <div class="audit-all-good">
+            <h3 style="color:#22c55e">Site-ul tău arată bine! ✓</h3>
+            <p>Nu am găsit probleme majore. Dacă vrei să duci site-ul la nivelul următor, îmi poți scrie oricând.</p>
+          </div>`;
+      } else {
+        issuesHtml = `
+          <div class="issues-header">
+            <h2>Am găsit <span class="accent">${all.length} probleme</span></h2>
+            <p>Acestea sunt lucrurile care îți afectează site-ul chiar acum — și pe care le pot rezolva rapid.</p>
+          </div>
+          <div class="issues-grid">${all.join('')}</div>`;
+      }
+      document.getElementById('issuesContainer').innerHTML = issuesHtml;
+
+      // URL label
+      try {
+        document.getElementById('resultUrl').textContent = new URL(url).hostname;
+      } catch { document.getElementById('resultUrl').textContent = url; }
+
+      // CTA
+      if (all.length > 0) {
+        document.getElementById('ctaTitle').textContent =
+          all.length === 1 ? 'Pot rezolva această problemă.' : `Pot rezolva toate cele ${all.length} probleme.`;
+        const encodedUrl = encodeURIComponent(url);
+        document.getElementById('ctaEmail').href = `/#contact?site=${encodedUrl}`;
+        document.getElementById('auditCta').style.display = 'grid';
+      }
+
+      document.getElementById('auditResults').classList.add('active');
+
+      // Animate score circles
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        document.querySelectorAll('.score-fill[data-score]').forEach(c => {
+          const s = parseInt(c.dataset.score);
+          c.style.strokeDasharray = `${s} ${100 - s}`;
+        });
+      }));
+
+      // Stagger cards
+      document.querySelectorAll('.audit-card').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+        setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, 80 + i * 70);
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── Submit ────────────────────────────────────────────
+    document.getElementById('auditForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const url = normalizeUrl(document.getElementById('urlInput').value);
+
+      if (!url) {
+        document.getElementById('auditError').classList.add('active');
+        document.getElementById('errorTitle').textContent = 'URL invalid';
+        document.getElementById('errorMsg').textContent = 'Introdu un URL valid, ex: https://site-ul-tau.ro';
+        return;
+      }
+
+      document.getElementById('auditHero').style.display = 'none';
+      document.getElementById('auditError').classList.remove('active');
+      document.getElementById('auditResults').classList.remove('active');
+      startLoading(url);
+
+      const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile&category=performance&category=seo&category=accessibility&category=best-practices`;
+
+      try {
+        const res = await fetch(apiUrl);
+        stopLoading();
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err?.error?.message || `HTTP ${res.status}`);
+        }
+        const data = await res.json();
+        if (!data.lighthouseResult) throw new Error('invalid');
+        renderResults(data, url);
+      } catch (err) {
+        stopLoading();
+        document.getElementById('auditHero').style.display = '';
+        document.getElementById('auditError').classList.add('active');
+        if (err.message?.includes('NOT_HTML')) {
+          document.getElementById('errorTitle').textContent = 'URL-ul nu duce la o pagină web';
+          document.getElementById('errorMsg').textContent = 'Asigură-te că URL-ul duce la un site, nu la un fișier sau API.';
+        } else if (err.message?.includes('429') || err.message?.includes('quota')) {
+          document.getElementById('errorTitle').textContent = 'Prea multe cereri';
+          document.getElementById('errorMsg').textContent = 'Încearcă din nou în câteva minute.';
+        } else if (err.message?.includes('FAILED')) {
+          document.getElementById('errorTitle').textContent = 'Site-ul nu a putut fi accesat';
+          document.getElementById('errorMsg').textContent = 'Verifică că site-ul funcționează și încearcă din nou.';
+        } else {
+          document.getElementById('errorTitle').textContent = 'Nu am putut analiza site-ul';
+          document.getElementById('errorMsg').textContent = 'Verifică URL-ul (ex: https://site-ul-tau.ro) și încearcă din nou.';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
