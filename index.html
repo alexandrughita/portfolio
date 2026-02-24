@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
 
   <!-- Nav -->
   <nav>
@@ -409,6 +411,27 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObs.observe(el));
+
+    // ── Custom cursor ───────────────────────────────────────
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    let mx = -100, my = -100, rx = -100, ry = -100;
+
+    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+
+    (function animCursor() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      dot.style.transform = `translate(${mx}px, ${my}px)`;
+      ring.style.transform = `translate(${rx}px, ${ry}px)`;
+      requestAnimationFrame(animCursor);
+    })();
+
+    const hoverEls = document.querySelectorAll('a, button, .serviciu-card, .porto-card');
+    hoverEls.forEach(el => {
+      el.addEventListener('mouseenter', () => { dot.classList.add('cursor-grow'); ring.classList.add('cursor-grow'); });
+      el.addEventListener('mouseleave', () => { dot.classList.remove('cursor-grow'); ring.classList.remove('cursor-grow'); });
+    });
 
     // ── Magnetic buttons ────────────────────────────────────
     document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
