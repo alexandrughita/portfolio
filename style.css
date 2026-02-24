@@ -52,6 +52,7 @@ nav {
   color: var(--text);
   text-decoration: none;
   letter-spacing: -0.02em;
+  font-variant: small-caps;
 }
 
 .nav-dot { color: var(--gold); }
@@ -180,6 +181,10 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
   border-radius: 50%;
   background: #22c55e;
   flex-shrink: 0;
+}
+
+h1, h2, h3 {
+  font-variant: small-caps;
 }
 
 h1 {
