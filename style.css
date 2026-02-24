@@ -247,6 +247,10 @@ h1 {
   gap: 16px;
 }
 
+.serviciu-span {
+  grid-column: 1 / -1;
+}
+
 .serviciu-card {
   background: var(--bg);
   border: 1px solid var(--border);
