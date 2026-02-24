@@ -782,7 +782,7 @@
       document.getElementById('auditResults').classList.remove('active');
       startLoading(url);
 
-      const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile&category=performance&category=seo&category=accessibility&category=best-practices`;
+      const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile&category=performance&category=seo&category=accessibility&category=best-practices&key=AIzaSyADr9EduMQpWa7hvWzZ1mNw-Eyur1CTNwU`;
 
       try {
         const res = await fetch(apiUrl);
