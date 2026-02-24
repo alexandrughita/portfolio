@@ -145,10 +145,6 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
   opacity: 0;
 }
 
-.hero-portrait.p-active .p-default {
-  opacity: 0;
-}
-
 .hero-portrait.p-active .p-hover {
   opacity: 1;
 }
