@@ -663,6 +663,21 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // ── GDPR / Cookie consent detection ───────────────────
+    const CONSENT_DOMAINS = [
+      'cookielaw.org','cookiebot.com','cookieyes.com','usercentrics',
+      'iubenda.com','complianz.io','cookie-script.com','trustarc.com',
+      'onetrust.com','didomi.io','cookiefirst.com','termly.io',
+      'osano.com','quantcast.mgr.consensu.org','gdpr-cookie',
+      'cookie-notice','cookie_notice','cookieconsent',
+    ];
+
+    function hasCookieConsent(audits) {
+      const items = audits['network-requests']?.details?.items || [];
+      const allUrls = items.map(r => r.url || '').join(' ');
+      return CONSENT_DOMAINS.some(d => allUrls.includes(d));
+    }
+
     // ── WordPress version detection ────────────────────────
     const WP_RELEASE_DATES = {
       '6.8':'2025-04','6.7':'2024-11','6.6':'2024-07','6.5':'2024-04',
@@ -754,6 +769,19 @@
               </div>`);
           }
         }
+      }
+
+      // GDPR cookie consent check
+      if (!hasCookieConsent(audits)) {
+        high.unshift(`
+          <div class="audit-card high">
+            <div class="audit-impact"><span class="impact-dot"></span>Impact ridicat</div>
+            <h3>Lipsă banner cookie — risc GDPR</h3>
+            <p>Nu am detectat niciun serviciu de cookie consent pe site. Conform GDPR (Regulamentul UE 679/2016), vizitatorii trebuie să-și dea acordul înainte ca site-ul să stocheze cookie-uri. Autoritatea română ANSPDCP emite amenzi activ.</p>
+            <div class="audit-fix">→ Implementare banner cookie + politică de confidențialitate → conformitate GDPR</div>
+            <p style="font-size:12px;color:var(--subtle);margin:8px 0 10px;">Amenzi: până la <strong>10.000.000 €</strong> sau 2% din cifra de afaceri globală. <em>Notă: dacă bannerul este integrat direct în tema site-ului, este posibil să nu fie detectat automat.</em></p>
+            <span class="audit-badge">Conformitate legală</span>
+          </div>`);
       }
 
       const all = [...high, ...medium];
