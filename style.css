@@ -275,6 +275,73 @@ h1 {
   max-width: 560px;
 }
 
+/* ── Test CTA ──────────────────────────────────────────────── */
+
+.test-cta-section {
+  padding: 0 0 64px;
+}
+
+.test-cta-inner {
+  background: var(--text);
+  color: #fff;
+  border-radius: 16px;
+  padding: 44px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.test-cta-text .badge {
+  background: rgba(244,168,37,0.15);
+  color: var(--gold);
+  border: 1px solid rgba(244,168,37,0.3);
+  margin-bottom: 16px;
+}
+
+.test-cta-text h2 {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.test-cta-text p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+.test-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.test-cta-actions .btn-outline {
+  color: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.test-cta-actions .btn-outline:hover {
+  border-color: rgba(255,255,255,0.45);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .test-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+  }
+  .test-cta-actions { width: 100%; }
+  .test-cta-actions .btn { width: 100%; justify-content: center; }
+}
+
 /* ── Servicii ──────────────────────────────────────────────── */
 
 .servicii {
