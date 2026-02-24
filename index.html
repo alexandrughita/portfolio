@@ -396,7 +396,7 @@
     document.getElementById('naspaBtn').addEventListener('click', e => {
       e.preventDefault();
       const el = document.querySelector('.test-cta-section');
-      const top = el.getBoundingClientRect().top + window.scrollY - 64;
+      const top = el.getBoundingClientRect().top + window.scrollY - 220;
       window.scrollTo({ top, behavior: 'smooth' });
     });
 
