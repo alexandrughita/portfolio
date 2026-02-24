@@ -9,7 +9,7 @@
   --bg-alt: #f4f3f0;
   --text: #1a1918;
   --muted: #6b6560;
-  --subtle: #a09890;
+  --subtle: #767070;
   --border: rgba(0, 0, 0, 0.09);
   --gold: #f4a825;
   --font: 'Bricolage Grotesque', -apple-system, sans-serif;
@@ -537,8 +537,8 @@ h1 {
 
 .highlight {
   font-size: 15px !important;
-  font-weight: 600 !important;
-  color: var(--gold) !important;
+  font-weight: 700 !important;
+  color: var(--text) !important;
   margin-top: 8px;
 }
 
