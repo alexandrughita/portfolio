@@ -7,16 +7,18 @@
   <meta name="description" content="Construiesc site-uri WordPress și statice pentru antreprenori din vestul României. SEO local, actualizare site vechi, mentenanță. Contactează-mă pentru o discuție gratuită." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- Nav -->
   <nav>
-    <a href="#" class="nav-logo"><em>AG</em></a>
+    <a href="#" class="nav-logo">AG<span class="nav-dot">.</span></a>
     <ul>
       <li><a href="#servicii">Servicii</a></li>
+      <li><a href="#portofoliu">Portofoliu</a></li>
+      <li><a href="#despre">De ce eu</a></li>
       <li><a href="#experienta">Experiență</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -26,41 +28,43 @@
 
     <!-- Hero -->
     <section class="hero">
-      <div class="container">
-        <p class="location">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          Timișoara &nbsp;·&nbsp; Vestul României
-        </p>
-        <h1>
-          <span class="name-line">Site-uri care</span>
-          <span class="name-line accent italic">aduc clienți.</span>
-        </h1>
-        <p class="tagline">WordPress · SEO · Prezentare online</p>
-        <p class="bio">
-          Îți construiesc prezența online de la zero sau o modernizez pe cea existentă.
-          Soluții simple, clare și eficiente — fără jargon tehnic, fără bătăi de cap.
-          Lucrezi direct cu mine, nu cu o agenție.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Discuție gratuită</a>
-          <a href="#servicii" class="btn btn-outline">Vezi serviciile</a>
+      <div class="hero-portrait">
+        <img src="portrait.png" alt="Alexandru Ghita" />
+      </div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badges">
+            <span class="badge badge-available"><span class="dot"></span>Disponibil pentru proiecte</span>
+            <span class="badge badge-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Timișoara
+            </span>
+          </div>
+          <h1>Fac site-uri care<br><span class="accent">aduc clienți.</span></h1>
+          <p class="tagline">WORDPRESS / WOOCOMMERCE / SEO / PREZENTARE</p>
+          <p class="bio">Ai un site care pare din 2015? Sau n-ai deloc? Te ajut. Construiesc site-uri moderne pe WordPress — rapid, clar, fără complicații.</p>
+          <p class="bio-sub">Lucrezi direct cu mine, nu cu o agenție. Îți răspund azi.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Discuție gratuită →</a>
+            <a href="#servicii" class="btn btn-outline">Vezi ce am făcut</a>
+          </div>
         </div>
-        <p class="hero-sub">Răspund în aceeași zi &nbsp;·&nbsp; Consultație inițială gratuită</p>
       </div>
     </section>
 
     <!-- Servicii -->
     <section class="servicii" id="servicii">
       <div class="container">
-        <h2 class="section-heading">Ce pot face pentru tine</h2>
+        <h2 class="section-heading">Ce fac <span class="section-sub">/ servicii</span></h2>
+        <p class="section-intro">Tot ce ai nevoie ca să fii prezent online — de la idee la un site care lucrează pentru tine.</p>
         <div class="servicii-grid">
 
           <div class="serviciu-card">
             <div class="serviciu-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
             </div>
-            <h3>Site nou de prezentare</h3>
-            <p>Site profesional pe WordPress sau static — rapid, modern, optimizat pentru mobil. Îți prezinți afacerea în cel mai bun mod posibil.</p>
+            <h3>Site nou de la zero</h3>
+            <p>Îți fac un site modern pe WordPress care arată bine și funcționează impecabil. Pe mobil, pe desktop, peste tot.</p>
             <ul class="serviciu-lista">
               <li>Design personalizat (Divi)</li>
               <li>Optimizat pentru Google</li>
@@ -70,23 +74,36 @@
 
           <div class="serviciu-card">
             <div class="serviciu-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
             </div>
-            <h3>Modernizare site vechi</h3>
-            <p>Site-ul tău arată ca în 2012? Îl fac rapid, sigur și actual — fără să pierzi conținutul existent sau pozițiile în Google.</p>
+            <h3>Modernizare site existent</h3>
+            <p>Site-ul tău arată ca în 2012? Îl refac complet — fără să pierzi ce ai construit deja.</p>
             <ul class="serviciu-lista">
               <li>Redesign complet sau parțial</li>
-              <li>Viteză și securitate îmbunătățite</li>
-              <li>Compatibil cu toate dispozitivele</li>
+              <li>Viteză și securitate</li>
+              <li>Compatibil cu orice dispozitiv</li>
             </ul>
           </div>
 
           <div class="serviciu-card">
             <div class="serviciu-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
             </div>
-            <h3>SEO local</h3>
-            <p>Te ajut să apari în primele rezultate Google când cineva din zona ta caută ce oferi tu. Mai multă vizibilitate, mai mulți clienți.</p>
+            <h3>Magazin WooCommerce</h3>
+            <p>Vinzi produse online? Îți fac un magazin complet — plăți, facturi, stocuri, tot ce trebuie.</p>
+            <ul class="serviciu-lista">
+              <li>Plăți card / ramburs</li>
+              <li>Facturare automată</li>
+              <li>Gestiune stocuri</li>
+            </ul>
+          </div>
+
+          <div class="serviciu-card">
+            <div class="serviciu-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <h3>Consultanță SEO</h3>
+            <p>Te ajut să apari în Google când cineva din zona ta caută exact ce oferi tu. Simplu.</p>
             <ul class="serviciu-lista">
               <li>Optimizare Google Maps</li>
               <li>Cuvinte cheie locale</li>
@@ -96,12 +113,25 @@
 
           <div class="serviciu-card">
             <div class="serviciu-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>Rezervări &amp; booking</h3>
+            <p>Ai o pensiune sau oferi servicii cu programare? Calendar live, sincronizat cu Airbnb și Booking.com.</p>
+            <ul class="serviciu-lista">
+              <li>Sync Airbnb / Booking.com</li>
+              <li>Calendar disponibilitate</li>
+              <li>Notificări automate</li>
+            </ul>
+          </div>
+
+          <div class="serviciu-card">
+            <div class="serviciu-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h3>Mentenanță lunară</h3>
-            <p>Mă ocup de toate actualizările, backup-urile și problemele tehnice. Tu te concentrezi pe afacerea ta, site-ul e pe mâini bune.</p>
+            <p>Mă ocup de toate actualizările, backup-urile și problemele tehnice. Tu te concentrezi pe business.</p>
             <ul class="serviciu-lista">
-              <li>Actualizări WordPress & plugin-uri</li>
+              <li>Update-uri WordPress &amp; plugin-uri</li>
               <li>Backup automat zilnic</li>
               <li>Suport tehnic prioritar</li>
             </ul>
@@ -111,28 +141,81 @@
       </div>
     </section>
 
-    <!-- De ce eu -->
-    <section class="despre">
+    <!-- Portofoliu -->
+    <section class="portofoliu" id="portofoliu">
+      <div class="container">
+        <h2 class="section-heading">Portofoliu <span class="section-sub">/ proiecte realizate</span></h2>
+        <p class="section-intro">O parte din proiectele la care am lucrat — de la WordPress la aplicații web moderne cu AI.</p>
+        <div class="porto-grid">
+
+          <a class="porto-card" href="https://trackglow.in" target="_blank" rel="noopener">
+            <div class="porto-img"><span>01</span></div>
+            <div class="porto-body">
+              <div class="porto-title-row">
+                <h3>TrackGlow</h3>
+                <svg class="porto-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </div>
+              <p class="porto-cat">Next.js / React / AI</p>
+              <p class="porto-desc">Aplicație web de mastering audio AI. Încarci un track, alegi un preset de artist și primești un master studio-quality în minute.</p>
+            </div>
+          </a>
+
+          <a class="porto-card" href="https://cars101.ca" target="_blank" rel="noopener">
+            <div class="porto-img"><span>02</span></div>
+            <div class="porto-body">
+              <div class="porto-title-row">
+                <h3>Cars101.ca</h3>
+                <svg class="porto-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </div>
+              <p class="porto-cat">WordPress + WP Bakery</p>
+              <p class="porto-desc">Site pentru dealer auto din Ontario, Canada. Inventar complet, programare service online și calculator de finanțare.</p>
+            </div>
+          </a>
+
+          <a class="porto-card" href="https://qbaa.ca" target="_blank" rel="noopener">
+            <div class="porto-img"><span>03</span></div>
+            <div class="porto-body">
+              <div class="porto-title-row">
+                <h3>QBAA.ca</h3>
+                <svg class="porto-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </div>
+              <p class="porto-cat">Web / CMS Custom</p>
+              <p class="porto-desc">Site pentru Quinte Business Achievement Awards — Ontario, Canada. Nominalizări, sponsori, galerie câștigători și detalii eveniment.</p>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="porto-cta">
+          <p>Ai un proiect similar? Hai să vorbim.</p>
+          <a href="#contact" class="btn btn-primary">Cere o ofertă gratuită →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Despre -->
+    <section class="despre" id="despre">
       <div class="container">
         <div class="despre-grid">
           <div class="despre-text">
-            <h2 class="section-heading">De ce să lucrezi cu mine</h2>
-            <p>Nu sunt o agenție cu zeci de angajați unde ești doar un număr de ticket. Ești client, nu dosar.</p>
-            <p>Am 12+ ani de experiență în WordPress și frontend, și am lucrat pe proiecte reale — de la magazine online la platforme cu mii de utilizatori. Știu ce funcționează și ce nu.</p>
-            <p>Înțeleg că nu ești specialist în IT — și tocmai de aceea mă asigur că totul e simplu și transparent, de la prima discuție până la livrare.</p>
+            <h2 class="section-heading">De ce eu <span class="section-sub">/ nu o agenție</span></h2>
+            <p>Nu sunt o agenție cu zeci de angajați unde ești doar un număr de ticket. Când lucrezi cu mine, vorbești direct cu persoana care îți face site-ul.</p>
+            <p>Am 12+ ani de experiență în WordPress și frontend — am lucrat pe proiecte reale, de la magazine online la platforme cu mii de utilizatori. Știu ce merge și ce nu.</p>
+            <p>Nu trebuie să fii specialist în IT. Eu mă asigur că totul e simplu și transparent — de la prima discuție până la livrare.</p>
+            <p class="highlight">Zero jargon tehnic. Zero surprize la preț.</p>
           </div>
           <div class="despre-stats">
             <div class="stat">
-              <span class="stat-num">50<em>+</em></span>
-              <span class="stat-label">site-uri livrate</span>
+              <span class="stat-num">50+</span>
+              <span class="stat-label">SITE-URI LIVRATE</span>
             </div>
             <div class="stat">
-              <span class="stat-num">12<em>+</em></span>
-              <span class="stat-label">ani experiență</span>
+              <span class="stat-num">12+</span>
+              <span class="stat-label">ANI EXPERIENȚĂ</span>
             </div>
             <div class="stat">
-              <span class="stat-num">1<em>zi</em></span>
-              <span class="stat-label">timp de răspuns</span>
+              <span class="stat-num">&lt;1zi</span>
+              <span class="stat-label">TIMP DE RĂSPUNS</span>
             </div>
           </div>
         </div>
@@ -142,18 +225,16 @@
     <!-- Experienta -->
     <section class="experience" id="experienta">
       <div class="container">
-        <h2 class="section-heading">Experiență</h2>
+        <h2 class="section-heading">Experiență <span class="section-sub">/ parcurs profesional</span></h2>
         <div class="exp-list">
 
           <div class="exp-item">
             <div class="exp-period">2024 — prezent</div>
             <div class="exp-body">
-              <h3>Jr. Full-Stack Developer</h3>
-              <p class="exp-company">Imobiliare.ro · Ringier South Africa</p>
-              <p class="exp-desc">Dezvoltare aplicații web cu Laravel, Livewire, Tailwind CSS și Alpine.js. Colaborare în echipe Agile pe produse cu milioane de utilizatori.</p>
-              <div class="exp-tags">
-                <span>Laravel</span><span>Livewire</span><span>Tailwind CSS</span><span>Alpine.js</span>
-              </div>
+              <h3>Full-Stack Developer</h3>
+              <p class="exp-company">Imobiliare.ro</p>
+              <p class="exp-desc">Aplicații web cu Laravel, Livewire, Tailwind CSS și Alpine.js. Produs cu milioane de utilizatori lunari.</p>
+              <div class="exp-tags"><span>Laravel</span><span>Livewire</span><span>Tailwind</span><span>Alpine.js</span></div>
             </div>
           </div>
 
@@ -161,23 +242,29 @@
             <div class="exp-period">2019 — 2024</div>
             <div class="exp-body">
               <h3>Frontend Developer</h3>
-              <p class="exp-company">Imobiliare.ro · RealMedia SA</p>
-              <p class="exp-desc">Interfețe pentru cea mai mare platformă imobiliară din România. Integrare cu API-uri, optimizare performanță și experiență utilizator.</p>
-              <div class="exp-tags">
-                <span>HTML/CSS</span><span>JavaScript</span><span>REST APIs</span>
-              </div>
+              <p class="exp-company">Imobiliare.ro</p>
+              <p class="exp-desc">Am dezvoltat interfețe pentru platforma imobiliară #1 din România. REST APIs, performanță, UX.</p>
+              <div class="exp-tags"><span>JavaScript</span><span>REST APIs</span><span>UX</span></div>
             </div>
           </div>
 
           <div class="exp-item">
             <div class="exp-period">2013 — prezent</div>
             <div class="exp-body">
-              <h3>WordPress Developer &amp; Designer</h3>
-              <p class="exp-company">Freelance</p>
-              <p class="exp-desc">50+ site-uri WordPress livrate: magazine online, site-uri de prezentare, joburi, e-learning. Expert Divi, Elementor, WooCommerce. Proiecte complete de la brief la lansare.</p>
-              <div class="exp-tags">
-                <span>WordPress</span><span>WooCommerce</span><span>Divi</span><span>Elementor</span><span>PHP</span>
-              </div>
+              <h3>WordPress Developer</h3>
+              <p class="exp-company">Freelance — 50+ site-uri</p>
+              <p class="exp-desc">Magazine WooCommerce, site-uri de prezentare, platforme de rezervări cu sync Airbnb/Booking.com. Tot ciclul — de la brief la deploy.</p>
+              <div class="exp-tags"><span>WordPress</span><span>WooCommerce</span><span>Booking</span><span>SEO</span></div>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-period">2014 — 2019</div>
+            <div class="exp-body">
+              <h3>QA Engineer</h3>
+              <p class="exp-company">Imobiliare.ro / Toluna</p>
+              <p class="exp-desc">5 ani de testare manuală și automată. Am învățat să construiesc software care funcționează din prima.</p>
+              <div class="exp-tags"><span>Selenium</span><span>Jira</span></div>
             </div>
           </div>
 
@@ -188,16 +275,21 @@
     <!-- Contact -->
     <section class="contact" id="contact">
       <div class="container">
-        <h2 class="section-heading">Hai să discutăm</h2>
-        <p class="contact-intro">Spune-mi cu ce te pot ajuta — consultația inițială e gratuită și fără obligații. Îți răspund în aceeași zi.</p>
+        <h2 class="section-heading">Hai să vorbim <span class="section-sub">/ contact</span></h2>
+        <p class="contact-intro">Descrie-mi pe scurt ce ai nevoie și revin cu o estimare de preț și timp. Prima discuție e pe mine — zero obligații.</p>
+        <p class="contact-highlight">Răspund în aceeași zi / Consultație gratuită</p>
         <div class="contact-actions">
           <a href="mailto:holla@alexandrughita.eu" class="btn btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             holla@alexandrughita.eu
           </a>
-          <a href="https://github.com/alexandrughita" target="_blank" rel="noopener" class="btn btn-outline">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            GitHub
+          <a href="https://wa.me/40723360305" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+40723360305" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.18-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.18z"/></svg>
+            Sună-mă
           </a>
         </div>
       </div>
@@ -206,8 +298,9 @@
   </main>
 
   <footer>
-    <div class="container">
-      <span>Alexandru Daniel Ghita · Timișoara · 2026</span>
+    <div class="container footer-inner">
+      <span>Alexandru Daniel Ghita / Timișoara / 2026</span>
+      <span class="footer-right">WordPress / WooCommerce / SEO / Booking</span>
     </div>
   </footer>
 
