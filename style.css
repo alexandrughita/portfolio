@@ -143,6 +143,7 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rota
 
 .hero-portrait .p-hover {
   opacity: 0;
+  mix-blend-mode: normal;
 }
 
 .hero-portrait.p-active .p-hover {
