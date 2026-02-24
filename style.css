@@ -722,7 +722,7 @@ a, button { cursor: none; }
   border-color: var(--gold);
 }
 
-@media (hover: none) {
+@media (hover: none), (max-width: 768px) {
   .cursor-dot, .cursor-ring { display: none; }
   body, a, button { cursor: auto; }
 }

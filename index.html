@@ -415,6 +415,9 @@
     // ── Custom cursor ───────────────────────────────────────
     const dot = document.querySelector('.cursor-dot');
     const ring = document.querySelector('.cursor-ring');
+    if (window.matchMedia('(hover: none)').matches || window.innerWidth <= 768) {
+      dot.remove(); ring.remove();
+    } else {
     let mx = -100, my = -100, rx = -100, ry = -100;
 
     document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
@@ -432,6 +435,7 @@
       el.addEventListener('mouseenter', () => { dot.classList.add('cursor-grow'); ring.classList.add('cursor-grow'); });
       el.addEventListener('mouseleave', () => { dot.classList.remove('cursor-grow'); ring.classList.remove('cursor-grow'); });
     });
+    }
 
   </script>
 </body>
