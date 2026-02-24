@@ -19,7 +19,7 @@
 
   <!-- Nav -->
   <nav>
-    <a href="#" class="nav-logo">alexandru<span class="nav-dot">ghita</span></a>
+    <a href="#" class="nav-logo">alexandru<span class="nav-dot">ghiță</span></a>
     <ul>
       <li><a href="#servicii">Servicii</a></li>
 
@@ -56,11 +56,11 @@
             </span>
           </div>
           <h1>salut, sunt Alex.<br><span class="accent">fac site-uri care aduc clienți.</span></h1>
-          <p class="tagline">WORDPRESS / WOOCOMMERCE / SEO / PREZENTARE</p>
+          <p class="tagline">WORDPRESS / WOOCOMMERCE / SEO / PREZENTARE / <span id="baniTrigger">NE ÎNȚELEGEM LA BANI</span></p>
           <p class="bio">Ai un site care pare din 2015? Sau n-ai deloc? Te ajut. Construiesc site-uri moderne pe WordPress - rapid, clar, fără complicații.</p>
           <p class="bio-sub">Lucrezi direct cu mine, nu cu o agenție. Îți răspund azi.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Discuție gratuită →</a>
+            <a href="#" class="btn btn-primary" id="naspaBtn">ai un site naspa?</a>
             <a href="#servicii" class="btn btn-outline">Vezi ce am făcut</a>
           </div>
         </div>
@@ -385,11 +385,19 @@
   <script>
     // ── Portrait swap ───────────────────────────────────────
     const portrait = document.querySelector('.hero-portrait');
-    const portraitTriggers = [portrait, ...document.querySelectorAll('.hero .btn-primary, .contact-actions .btn-primary')];
+    const portraitTriggers = [portrait, document.getElementById('baniTrigger'), ...document.querySelectorAll('.contact-actions .btn-primary')];
     portraitTriggers.forEach(el => {
       if (!el) return;
       el.addEventListener('mouseenter', () => portrait.classList.add('p-active'));
       el.addEventListener('mouseleave', () => portrait.classList.remove('p-active'));
+    });
+
+    // ── Naspa button scroll ─────────────────────────────────
+    document.getElementById('naspaBtn').addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector('.test-cta-section');
+      const top = el.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top, behavior: 'smooth' });
     });
 
     // ── Hamburger ───────────────────────────────────────────
