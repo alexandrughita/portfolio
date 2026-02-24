@@ -723,7 +723,7 @@
       } else {
         issuesHtml = `
           <div class="issues-header">
-            <h2>Am găsit <span class="accent">${all.length === 1 ? 'o problemă' : `${all.length} probleme`}</span></h2>
+            <h2>Am găsit <span class="accent">${all.length === 1 ? 'o problemă' : all.length >= 20 ? `${all.length} de probleme` : `${all.length} probleme`}</span></h2>
             <p>Acestea sunt lucrurile care îți afectează site-ul chiar acum — și pe care le pot rezolva rapid.</p>
           </div>
           <div class="issues-grid">${all.join('')}</div>`;
