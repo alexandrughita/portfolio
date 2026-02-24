@@ -49,9 +49,9 @@ nav {
 .nav-logo {
   font-size: 18px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--text);
   text-decoration: none;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .nav-dot { color: var(--gold); }
