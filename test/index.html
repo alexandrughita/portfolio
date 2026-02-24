@@ -662,6 +662,27 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // ── WordPress version detection ────────────────────────
+    const WP_RELEASE_DATES = {
+      '6.8':'2025-04','6.7':'2024-11','6.6':'2024-07','6.5':'2024-04',
+      '6.4':'2023-11','6.3':'2023-08','6.2':'2023-03','6.1':'2022-11',
+      '6.0':'2022-05','5.9':'2022-01','5.8':'2021-07','5.7':'2021-03',
+      '5.6':'2020-12','5.5':'2020-08','5.4':'2020-03','5.3':'2019-11',
+      '5.2':'2019-05','5.1':'2019-02','5.0':'2018-12','4.9':'2017-11',
+      '4.8':'2017-06','4.7':'2016-12','4.6':'2016-08',
+    };
+
+    function detectWpVersion(audits) {
+      const items = audits['network-requests']?.details?.items || [];
+      const urls = items.map(r => r.url || '');
+      if (!urls.some(u => u.includes('/wp-content/') || u.includes('/wp-includes/'))) return null;
+      for (const u of urls) {
+        const m = u.match(/\/wp-includes\/[^?#]+\?(?:[^#]*&)?ver=(\d+\.\d+(?:\.\d+)?)/);
+        if (m) return m[1];
+      }
+      return null;
+    }
+
     // ── Render ────────────────────────────────────────────
     function renderResults(data, url) {
       const cats = data.lighthouseResult.categories;
@@ -711,6 +732,29 @@
           </div>`;
         info.impact === 'high' ? high.push(card) : medium.push(card);
       }
+      // WordPress age check
+      const wpVersion = detectWpVersion(audits);
+      if (wpVersion) {
+        const key = wpVersion.split('.').slice(0, 2).join('.');
+        const rel = WP_RELEASE_DATES[key];
+        if (rel) {
+          const [ry, rm] = rel.split('-').map(Number);
+          const ageMonths = (new Date().getFullYear() - ry) * 12 + (new Date().getMonth() + 1 - rm);
+          if (ageMonths > 12) {
+            const years = Math.floor(ageMonths / 12);
+            const ageText = years === 1 ? '1 an' : `${years} ani`;
+            high.unshift(`
+              <div class="audit-card high">
+                <div class="audit-impact"><span class="impact-dot"></span>Impact ridicat</div>
+                <h3>WordPress ${wpVersion} — fără actualizări de ${ageText}</h3>
+                <p>Versiunea ta de WordPress a fost lansată acum ${ageText}. Site-urile neactualizate sunt principala țintă a atacurilor automate — vulnerabilitățile cunoscute sunt exploatate activ pe internet.</p>
+                <div class="audit-fix">→ Update WordPress + teme + pluginuri → site securizat și stabil</div>
+                <span class="audit-badge">Securitate critică</span>
+              </div>`);
+          }
+        }
+      }
+
       const all = [...high, ...medium];
 
       let issuesHtml = '';
