@@ -303,6 +303,56 @@ h1 {
   flex-shrink: 0;
 }
 
+/* ── AI featured card ──────────────────────────────────────── */
+
+.serviciu-ai {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  background: var(--text);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 16px;
+}
+
+.serviciu-ai:hover {
+  background: #2a2926;
+  border-color: transparent;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+}
+
+.serviciu-ai .serviciu-icon {
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.serviciu-ai h3 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.serviciu-ai p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.serviciu-ai .serviciu-lista li {
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+}
+
+.serviciu-ai .serviciu-lista li::before {
+  background: var(--gold);
+}
+
 /* ── Portofoliu ────────────────────────────────────────────── */
 
 .portofoliu {
@@ -595,6 +645,11 @@ footer span {
 /* ── Responsive ────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
+  .serviciu-ai {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
   .hero-container {
     flex-direction: column;
     align-items: stretch;
