@@ -32,7 +32,8 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-portrait">
-        <img src="portrait.png" alt="Alexandru Ghita" />
+        <img src="portrait.png" alt="Alexandru Ghita" class="p-default" />
+        <img src="portrait2.png" alt="Alexandru Ghita" class="p-hover" />
       </div>
       <div class="container hero-container">
         <div class="hero-content">
@@ -341,6 +342,14 @@
   </footer>
 
   <script>
+    const portrait = document.querySelector('.hero-portrait');
+    const portraitTriggers = [portrait, ...document.querySelectorAll('.hero .btn-primary, .contact-actions .btn-primary')];
+    portraitTriggers.forEach(el => {
+      if (!el) return;
+      el.addEventListener('mouseenter', () => portrait.classList.add('p-active'));
+      el.addEventListener('mouseleave', () => portrait.classList.remove('p-active'));
+    });
+
     const hamburger = document.querySelector('.nav-hamburger');
     const navEl = document.querySelector('nav');
     hamburger.addEventListener('click', () => navEl.classList.toggle('nav-open'));
