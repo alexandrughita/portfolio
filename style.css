@@ -689,6 +689,41 @@ h1 {
   background: rgba(0,0,0,0.02);
 }
 
+/* Toggle header */
+.experience-toggle {
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Icon */
+.exp-icon {
+  font-size: 32px;
+  line-height: 1;
+  transition: transform .25s ease;
+}
+
+/* Hidden content */
+.exp-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+
+/* Open state */
+.experience.open .exp-content {
+  max-height: 2000px;
+}
+
+.experience.open .exp-icon {
+  transform: rotate(45deg);
+}
+
 /* ── Contact ───────────────────────────────────────────────── */
 
 .contact { padding: 96px 0 112px; }

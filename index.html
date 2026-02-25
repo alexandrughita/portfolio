@@ -301,54 +301,64 @@
     </section>
 
     <!-- Experienta -->
-    <section class="experience" id="experienta">
-      <div class="container">
-        <h2 class="section-heading">experiență <span class="section-sub">/ parcurs profesional</span></h2>
-        <div class="exp-list">
+<!-- Experienta -->
+<section class="experience" id="experienta">
+  <div class="container">
 
-          <div class="exp-item">
-            <div class="exp-period">2024 - prezent</div>
-            <div class="exp-body">
-              <h3>full-stack developer</h3>
-              <p class="exp-company">Imobiliare.ro</p>
-              <p class="exp-desc">Aplicații web cu Laravel, Livewire, Tailwind CSS și Alpine.js. Produs cu milioane de utilizatori lunari.</p>
-              <div class="exp-tags"><span>Laravel</span><span>Livewire</span><span>Tailwind</span><span>Alpine.js</span></div>
-            </div>
+    <button class="experience-toggle" aria-expanded="false">
+      <h2 class="section-heading">
+        experiență <span class="section-sub">/ parcurs profesional</span>
+      </h2>
+      <span class="exp-icon">+</span>
+    </button>
+
+    <div class="exp-content">
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-period">2024 - prezent</div>
+          <div class="exp-body">
+            <h3>full-stack developer</h3>
+            <p class="exp-company">Imobiliare.ro</p>
+            <p class="exp-desc">Aplicații web cu Laravel, Livewire, Tailwind CSS și Alpine.js. Produs cu milioane de utilizatori lunari.</p>
+            <div class="exp-tags"><span>Laravel</span><span>Livewire</span><span>Tailwind</span><span>Alpine.js</span></div>
           </div>
-
-          <div class="exp-item">
-            <div class="exp-period">2019 - 2024</div>
-            <div class="exp-body">
-              <h3>frontend developer</h3>
-              <p class="exp-company">Imobiliare.ro</p>
-              <p class="exp-desc">Am dezvoltat interfețe pentru platforma imobiliară #1 din România. REST APIs, performanță, UX.</p>
-              <div class="exp-tags"><span>JavaScript</span><span>REST APIs</span><span>UX</span></div>
-            </div>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-period">2013 - prezent</div>
-            <div class="exp-body">
-              <h3>WordPress developer</h3>
-              <p class="exp-company">Freelance - 50+ site-uri</p>
-              <p class="exp-desc">Magazine WooCommerce, site-uri de prezentare, platforme de rezervări cu sync Airbnb/Booking.com. Tot ciclul - de la brief la deploy.</p>
-              <div class="exp-tags"><span>WordPress</span><span>WooCommerce</span><span>Booking</span><span>SEO</span></div>
-            </div>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-period">2014 - 2019</div>
-            <div class="exp-body">
-              <h3>QA engineer</h3>
-              <p class="exp-company">Imobiliare.ro / Toluna</p>
-              <p class="exp-desc">5 ani de testare manuală și automată. Am învățat să construiesc software care funcționează din prima.</p>
-              <div class="exp-tags"><span>Selenium</span><span>Jira</span></div>
-            </div>
-          </div>
-
         </div>
+
+        <div class="exp-item">
+          <div class="exp-period">2019 - 2024</div>
+          <div class="exp-body">
+            <h3>frontend developer</h3>
+            <p class="exp-company">Imobiliare.ro</p>
+            <p class="exp-desc">Am dezvoltat interfețe pentru platforma imobiliară #1 din România. REST APIs, performanță, UX.</p>
+            <div class="exp-tags"><span>JavaScript</span><span>REST APIs</span><span>UX</span></div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-period">2013 - prezent</div>
+          <div class="exp-body">
+            <h3>WordPress developer</h3>
+            <p class="exp-company">Freelance - 50+ site-uri</p>
+            <p class="exp-desc">Magazine WooCommerce, site-uri de prezentare, platforme de rezervări cu sync Airbnb/Booking.com. Tot ciclul - de la brief la deploy.</p>
+            <div class="exp-tags"><span>WordPress</span><span>WooCommerce</span><span>Booking</span><span>SEO</span></div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-period">2014 - 2019</div>
+          <div class="exp-body">
+            <h3>QA engineer</h3>
+            <p class="exp-company">Imobiliare.ro / Toluna</p>
+            <p class="exp-desc">5 ani de testare manuală și automată. Am învățat să construiesc software care funcționează din prima.</p>
+            <div class="exp-tags"><span>Selenium</span><span>Jira</span></div>
+          </div>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Contact -->
     <section class="contact" id="contact">
@@ -483,6 +493,15 @@
       el.addEventListener('mouseleave', () => { dot.classList.remove('cursor-grow'); ring.classList.remove('cursor-grow'); });
     });
     }
+
+    // ── Experience toggle ─────────────────────────
+    const expSection = document.querySelector('.experience');
+    const expToggle = document.querySelector('.experience-toggle');
+
+    expToggle.addEventListener('click', () => {
+      const isOpen = expSection.classList.toggle('open');
+      expToggle.setAttribute('aria-expanded', isOpen);
+    });
 
   </script>
 </body>
