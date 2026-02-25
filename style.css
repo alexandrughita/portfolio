@@ -46,6 +46,10 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
+nav.home {
+  display: none;
+}
+
 .nav-logo {
   font-size: 18px;
   font-weight: 700;
@@ -867,7 +871,10 @@ a, button { cursor: none; }
 
 @media (max-width: 600px) {
   .container { padding: 0 20px; }
-  nav { padding: 0 20px; }
+  nav { padding: 0 20px; 
+}
+
+nav.home { display: flex; }
 
   .nav-hamburger { display: flex; }
 
