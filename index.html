@@ -23,9 +23,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-
   <!-- Nav -->
   <nav class="home">
     <a href="#" class="nav-logo">alexandru<span class="nav-dot">ghiță</span></a>
@@ -69,8 +66,7 @@
           <p class="bio">Ai un site făcut de tine, de un prieten sau o agenție (care nu mai răspunde la mailuri)? Ești nemulțumit de beneficiile pe care le aduce afacerii tale? Hai să vedem ce e de făcut!</p>
           <p class="bio-sub">Lucrezi direct cu mine, nu cu o agenție. Îți răspund azi.</p>
           <div class="hero-actions">
-            <a href="/test" class="btn btn-primary" id="naspaBtn">ai un site nașpa?</a>
-            <a href="#servicii" class="btn btn-outline">vezi ce e de făcut</a>
+            <a href="#servicii" class="btn btn-primary">vezi ce e de făcut</a>
           </div>
         </div>
       </div>
@@ -387,10 +383,6 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
             WhatsApp
           </a>
-          <a href="tel:+40723360305" class="btn btn-outline">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.18-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.18z"/></svg>
-            Sună-mă
-          </a>
         </div>
       </div>
     </section>
@@ -412,14 +404,6 @@
       if (!el) return;
       el.addEventListener('mouseenter', () => portrait.classList.add('p-active'));
       el.addEventListener('mouseleave', () => portrait.classList.remove('p-active'));
-    });
-
-    // ── Naspa button scroll ─────────────────────────────────
-    document.getElementById('naspaBtn').addEventListener('click', e => {
-      e.preventDefault();
-      const el = document.querySelector('.test-cta-section');
-      const top = el.getBoundingClientRect().top + window.scrollY - 220;
-      window.scrollTo({ top, behavior: 'smooth' });
     });
 
     // ── Hamburger ───────────────────────────────────────────
@@ -480,31 +464,6 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObs.observe(el));
-
-    // ── Custom cursor ───────────────────────────────────────
-    const dot = document.querySelector('.cursor-dot');
-    const ring = document.querySelector('.cursor-ring');
-    if (window.matchMedia('(hover: none)').matches || window.innerWidth <= 768) {
-      dot.remove(); ring.remove();
-    } else {
-    let mx = -100, my = -100, rx = -100, ry = -100;
-
-    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
-
-    (function animCursor() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      dot.style.transform = `translate(${mx}px, ${my}px)`;
-      ring.style.transform = `translate(${rx}px, ${ry}px)`;
-      requestAnimationFrame(animCursor);
-    })();
-
-    const hoverEls = document.querySelectorAll('a, button, .serviciu-card, .porto-card');
-    hoverEls.forEach(el => {
-      el.addEventListener('mouseenter', () => { dot.classList.add('cursor-grow'); ring.classList.add('cursor-grow'); });
-      el.addEventListener('mouseleave', () => { dot.classList.remove('cursor-grow'); ring.classList.remove('cursor-grow'); });
-    });
-    }
 
     // ── Experience toggle ─────────────────────────
     const expSection = document.querySelector('.experience');
