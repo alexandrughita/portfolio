@@ -403,6 +403,17 @@ h1 {
   flex-shrink: 0;
 }
 
+.serviciu-inline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.serviciu-inline-link:hover {
+  color: var(--gold);
+}
+
 /* ── AI featured card ──────────────────────────────────────── */
 
 .serviciu-ai {
