@@ -704,6 +704,10 @@ h1 {
   background: rgba(0,0,0,0.02);
 }
 
+.exp-actions {
+  margin-top: 24px;
+}
+
 /* Toggle header */
 .experience-toggle {
   width: 100%;
