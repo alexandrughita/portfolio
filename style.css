@@ -244,7 +244,7 @@ h1 {
   cursor: pointer;
 }
 
-.btn-primary { background: var(--gold); color: #111; }
+.btn-primary { background: var(--gold); color: #fff; }
 .btn-primary:hover { opacity: 0.88; }
 
 .btn-outline {
@@ -878,9 +878,9 @@ footer span {
   font-weight: 600;
   padding: 7px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(244, 168, 37, 0.35);
-  background: rgba(244, 168, 37, 0.08);
-  color: #7a5311;
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+  color: var(--gold);
   margin-bottom: 20px;
 }
 
@@ -1231,7 +1231,7 @@ footer span {
 
 .cs-cta-actions .btn-primary {
   background: var(--gold);
-  color: #111;
+  color: #fff;
 }
 
 .cs-cta-actions .btn-outline {
