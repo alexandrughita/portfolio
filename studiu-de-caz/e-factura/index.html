@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>e-Factura Case Study | Alexandru Ghita</title>
+  <meta name="description" content="Case study: Building a free e-invoicing web app for Romanian small businesses using Laravel, Alpine.js, and Fly.io free tier." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGD4Z726L2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGD4Z726L2');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="cs-topbar">
+    <div class="container cs-topbar-inner">
+      <a class="nav-logo" href="/">alexandru<span class="nav-dot">ghita</span></a>
+      <a class="cs-back" href="/#portofoliu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Back to portfolio
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="cs-hero">
+      <div class="container">
+        <span class="cs-badge" data-aos="fade-up">Case Study &middot; Web App</span>
+        <h1 data-aos="fade-up" data-aos-delay="50">e-Factura</h1>
+        <p class="lead" data-aos="fade-up" data-aos-delay="100">A free, simple web application that helps Romanian small businesses create, manage, and export ANAF-compliant electronic invoices — without the complexity of enterprise software.</p>
+        <div class="cs-hero-actions" data-aos="fade-up" data-aos-delay="150">
+          <a href="https://e.alexandrughita.eu" target="_blank" rel="noopener" class="btn btn-primary">
+            View Live
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Screenshots <span class="section-sub">/ app walkthrough</span></h2>
+        <div class="cs-carousel" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="dash.webp" alt="e-Factura welcome page with login" />
+              </div>
+              <div class="swiper-slide">
+                <img src="login.webp" alt="Login screen" />
+              </div>
+              <div class="swiper-slide">
+                <img src="register.webp" alt="Registration form" />
+              </div>
+              <div class="swiper-slide">
+                <img src="invoice-create.webp" alt="Invoice creation form" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=placeholder>Invoice Creation Form</span>'" />
+              </div>
+              <div class="swiper-slide">
+                <img src="invoice-pdf.webp" alt="Invoice PDF preview" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=placeholder>Invoice PDF Preview</span>'" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">The Challenge <span class="section-sub">/ why this exists</span></h2>
+        <div class="cs-problem-grid">
+          <div class="cs-card dark" data-aos="fade-up" data-aos-delay="50">
+            <h3>The Problem</h3>
+            <ul>
+              <li>Romania mandates e-invoicing (e-Factura) for all B2B transactions through ANAF's system</li>
+              <li>Existing solutions are expensive, overbuilt for small businesses, or require technical knowledge</li>
+              <li>ANAF's own interface is confusing and error-prone for non-technical users</li>
+              <li>Small businesses with 5-20 invoices/month can't justify paying for enterprise invoicing software</li>
+            </ul>
+          </div>
+          <div class="cs-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>The Solution</h3>
+            <ul>
+              <li>A free, self-hosted web app purpose-built for small Romanian businesses</li>
+              <li>Simple invoice creation with automatic CIUS-RO compliant UBL 2.1 XML generation</li>
+              <li>Auto-lookup company data from ANAF using just a Tax ID (CUI)</li>
+              <li>PDF export, email delivery, and clean dashboard — all in a familiar, modern UI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Tech Stack <span class="section-sub">/ what powers it</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">Built with a modern PHP stack and deployed entirely on free-tier infrastructure. The total monthly cost to run this in production is zero.</p>
+        <div class="cs-tech-grid">
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="50">
+            <h4>Backend</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Laravel 12</span>
+              <span class="cs-tech-tag">PHP 8.4</span>
+              <span class="cs-tech-tag">DOMPDF</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="100">
+            <h4>Frontend</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Tailwind CSS v3</span>
+              <span class="cs-tech-tag">Alpine.js</span>
+              <span class="cs-tech-tag">Vite</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="150">
+            <h4>Database</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag free">SQLite</span>
+              <span class="cs-tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="200">
+            <h4>Hosting & Deploy</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag free">Fly.io</span>
+              <span class="cs-tech-tag">Docker</span>
+              <span class="cs-tech-tag free">Let's Encrypt</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="250">
+            <h4>Standards</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">UBL 2.1 XML</span>
+              <span class="cs-tech-tag">CIUS-RO</span>
+              <span class="cs-tech-tag">UN/ECE Codes</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="300">
+            <h4>Integration</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">ANAF API</span>
+              <span class="cs-tech-tag">Email (SMTP)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-cost" data-aos="fade-up">
+          <div class="cs-cost-title">Monthly Infrastructure Cost</div>
+          <div class="cs-cost-amount">$0</div>
+          <div class="cs-cost-note">Fly.io free tier + SQLite on persistent volume + Let's Encrypt SSL</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">Key Features <span class="section-sub">/ what it does</span></h2>
+        <div class="cs-features-grid">
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="50">
+            <h3>UBL 2.1 XML Generation</h3>
+            <p>Generates ANAF-compliant CIUS-RO electronic invoices in UBL 2.1 format, ready for SPV upload. Handles all required fields, tax categories, and unit code mapping.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="100">
+            <h3>ANAF CUI Auto-Lookup</h3>
+            <p>Enter a company's Tax ID (CUI) and automatically fetch their full name, address, VAT status, and registration number from ANAF's public API.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="150">
+            <h3>Multi-Currency & VAT</h3>
+            <p>Support for RON and EUR currencies with automatic VAT calculation at 19%, 9%, 5%, or 0% rates. All totals auto-computed on the fly.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="200">
+            <h3>PDF Export & Email</h3>
+            <p>Generate professional PDF invoices with DOMPDF and send them directly to clients via email — all from within the app.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="250">
+            <h3>Invoice Numbering</h3>
+            <p>Automatic series-based numbering (e.g., FCT-00001) with customizable prefixes. Numbers auto-increment per company to avoid duplicates.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="300">
+            <h3>Company Management</h3>
+            <p>Full company profile with logo upload, client database, and product/service catalog. Everything organized per authenticated user.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="350">
+            <h3>GDPR Data Export</h3>
+            <p>Users can export all their data (company info, clients, invoices) in a single click — full GDPR compliance built in.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="400">
+            <h3>Responsive Design</h3>
+            <p>Works on desktop, tablet, and mobile. Built with Tailwind CSS and Alpine.js for a snappy, modern interface.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Architecture <span class="section-sub">/ how it works</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A classic monolithic Laravel app deployed as a Docker container on Fly.io. SQLite lives on a persistent volume — zero external database costs.</p>
+        <div class="cs-arch" data-aos="fade-up" data-aos-delay="100">
+          <h3>Request Flow</h3>
+          <div class="cs-arch-flow">
+            <div class="cs-arch-step">
+              <strong>Browser</strong>
+              <span>User creates invoice</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Nginx</strong>
+              <span>Reverse proxy</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Laravel</strong>
+              <span>PHP-FPM on Fly.io</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>SQLite</strong>
+              <span>Persistent volume</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Output</strong>
+              <span>XML / PDF / Email</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cs-cta">
+      <div class="container">
+        <div class="cs-cta-box" data-aos="fade-up">
+          <div>
+            <h2>Like what you see?</h2>
+            <p>I build production web apps from scratch — full-stack, deployed, and running on free infrastructure. Let's talk about your project.</p>
+          </div>
+          <div class="cs-cta-actions">
+            <a href="mailto:holla@alexandrughita.eu" class="btn btn-primary">Get in touch</a>
+            <a href="/#portofoliu" class="btn btn-outline">More projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Alexandru Daniel Ghita / Timisoara / 2026</span>
+      <span class="footer-right">Laravel / Next.js / Python / AI</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 60 });
+
+    new Swiper('.swiper', {
+      loop: true,
+      autoplay: { delay: 4000, disableOnInteraction: true },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      speed: 500,
+    });
+  </script>
+</body>
+</html>

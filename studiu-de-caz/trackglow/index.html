@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrackGlow Case Study | Alexandru Ghita</title>
+  <meta name="description" content="Case study: Building an AI audio mastering SaaS platform with Next.js, Python, and 6 free-tier cloud services." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGD4Z726L2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGD4Z726L2');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="cs-topbar">
+    <div class="container cs-topbar-inner">
+      <a class="nav-logo" href="/">alexandru<span class="nav-dot">ghita</span></a>
+      <a class="cs-back" href="/#portofoliu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Back to portfolio
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="cs-hero">
+      <div class="container">
+        <span class="cs-badge" data-aos="fade-up">Case Study &middot; SaaS Platform</span>
+        <h1 data-aos="fade-up" data-aos-delay="50">TrackGlow</h1>
+        <p class="lead" data-aos="fade-up" data-aos-delay="100">An AI-powered audio mastering platform that lets homestudio producers and rappers get studio-quality masters in minutes — for free. Upload a track, pick an artist preset, download the result.</p>
+        <div class="cs-hero-actions" data-aos="fade-up" data-aos-delay="150">
+          <a href="https://trackglow.in" target="_blank" rel="noopener" class="btn btn-primary">
+            View Live
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Screenshots <span class="section-sub">/ app walkthrough</span></h2>
+        <div class="cs-carousel" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="landing.webp" alt="TrackGlow landing page with video hero" />
+              </div>
+              <div class="swiper-slide">
+                <img src="upload.webp" alt="Upload and preset selection interface" />
+              </div>
+              <div class="swiper-slide">
+                <img src="presets.webp" alt="Full mastering page with preset grid" />
+              </div>
+              <div class="swiper-slide">
+                <img src="blog.webp" alt="Blog with mastering guides" />
+              </div>
+              <div class="swiper-slide">
+                <img src="completed.webp" alt="Completed job with audio player" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=placeholder>Completed &mdash; Audio Preview</span>'" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">The Challenge <span class="section-sub">/ why this exists</span></h2>
+        <div class="cs-problem-grid">
+          <div class="cs-card dark" data-aos="fade-up" data-aos-delay="50">
+            <h3>The Problem</h3>
+            <ul>
+              <li>Professional audio mastering costs $50-200 per track — out of reach for most independent artists</li>
+              <li>Mastering requires expensive software (iZotope, FabFilter) and years of trained ears</li>
+              <li>Homestudio producers and rappers often release unmastered music, losing competitive quality</li>
+              <li>Existing AI mastering tools charge subscription fees and offer limited presets</li>
+            </ul>
+          </div>
+          <div class="cs-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>The Solution</h3>
+            <ul>
+              <li>Upload any .mp3 or .wav file (beat or full track) and get a mastered version back in minutes</li>
+              <li>Choose from 11 artist presets (Drake, Travis Scott, The Weeknd...) or 4 style presets</li>
+              <li>AI-powered 2-stage pipeline: EQ/loudness matching + artist-specific character effects</li>
+              <li>Free to use — built entirely on free-tier cloud infrastructure</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Tech Stack <span class="section-sub">/ what powers it</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A full-stack TypeScript + Python platform spanning 6 different cloud services — all on free tiers. The frontend runs on Vercel, the audio worker on Fly.io, with Supabase, R2, and Redis gluing it all together.</p>
+        <div class="cs-tech-grid">
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="50">
+            <h4>Frontend</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Next.js 16</span>
+              <span class="cs-tech-tag">React 19</span>
+              <span class="cs-tech-tag">TypeScript</span>
+              <span class="cs-tech-tag">Tailwind CSS v4</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="100">
+            <h4>Auth</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">NextAuth v5</span>
+              <span class="cs-tech-tag">Google OAuth</span>
+              <span class="cs-tech-tag">JWT Sessions</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="150">
+            <h4>Database</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag free">Supabase PostgreSQL</span>
+              <span class="cs-tech-tag">Prisma v6</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="200">
+            <h4>Storage & Queue</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag free">Cloudflare R2</span>
+              <span class="cs-tech-tag free">Upstash Redis</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="250">
+            <h4>Audio Engine</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Python 3.11</span>
+              <span class="cs-tech-tag">matchering</span>
+              <span class="cs-tech-tag">Spotify pedalboard</span>
+              <span class="cs-tech-tag">FFmpeg</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="300">
+            <h4>Hosting</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag free">Vercel</span>
+              <span class="cs-tech-tag free">Fly.io</span>
+              <span class="cs-tech-tag free">Resend</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-cost" data-aos="fade-up">
+          <div class="cs-cost-title">Monthly Infrastructure Cost</div>
+          <div class="cs-cost-amount">$0</div>
+          <div class="cs-cost-note">6 free-tier services: Vercel + Supabase + Cloudflare R2 + Upstash Redis + Fly.io + Resend</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">Key Features <span class="section-sub">/ what it does</span></h2>
+        <div class="cs-features-grid">
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="50">
+            <h3>11 Artist Presets</h3>
+            <p>Drake, Travis Scott, The Weeknd, Tupac, Lil Wayne, Wu-Tang Clan, Playboi Carti, Don Toliver, 6ix9ine, Griselda Records, and Vybz Kartel. Each with custom EQ profiles and effects chains.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="100">
+            <h3>2-Stage Audio Pipeline</h3>
+            <p>Stage 1: Spectral EQ matching and loudness targeting using pre-computed .npz profiles. Stage 2: Artist-specific pedalboard effects (compression, saturation, stereo widening, sidechain pump).</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="150">
+            <h3>Intensity Control</h3>
+            <p>A 0-100% wet/dry slider lets users dial in exactly how much of the mastering effect they want — from subtle to aggressive.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="200">
+            <h3>Version Retry System</h3>
+            <p>Try up to 3 different presets on the same upload, compare the results side-by-side with audio previews, then download your favorite version.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="250">
+            <h3>BPM & Key Detection</h3>
+            <p>The Python worker automatically detects tempo (BPM) and musical key during processing. Results are stored in the database and displayed on the status page.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="300">
+            <h3>Custom Reference Upload</h3>
+            <p>Don't want a preset? Upload your own reference track and the AI will match its spectral profile and loudness characteristics.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="350">
+            <h3>Admin Dashboard</h3>
+            <p>Full admin panel with user management, job monitoring, preset configuration, feature toggles, and site-wide settings.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="400">
+            <h3>SEO & Blog</h3>
+            <p>JSON-LD structured data (SoftwareApplication + FAQPage), dynamic sitemap, Open Graph tags, and a built-in blog with admin CRUD and scheduled publishing.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="450">
+            <h3>GDPR Compliant</h3>
+            <p>Cookie consent banner that gates Google Analytics 4 tracking. GA4 events fire on mastering job completion for conversion tracking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Architecture <span class="section-sub">/ how it works</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A decoupled architecture with the Next.js frontend on Vercel and a Python audio processing worker on Fly.io, communicating through Redis queues and S3-compatible storage.</p>
+        <div class="cs-arch" data-aos="fade-up" data-aos-delay="100">
+          <h3>Processing Pipeline</h3>
+          <div class="cs-arch-flow">
+            <div class="cs-arch-step">
+              <strong>Upload</strong>
+              <span>Presigned PUT to R2</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Next.js API</strong>
+              <span>Create job in DB</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Redis Queue</strong>
+              <span>LPUSH job ID</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Python Worker</strong>
+              <span>matchering + pedalboard</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>R2 Output</strong>
+              <span>master.wav stored</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Poll & Download</strong>
+              <span>Frontend polls status</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cs-cta">
+      <div class="container">
+        <div class="cs-cta-box" data-aos="fade-up">
+          <div>
+            <h2>Like what you see?</h2>
+            <p>I build full-stack SaaS platforms from scratch — Next.js, Python, AI, cloud infrastructure. All running on free tiers. Let's talk about your project.</p>
+          </div>
+          <div class="cs-cta-actions">
+            <a href="mailto:holla@alexandrughita.eu" class="btn btn-primary">Get in touch</a>
+            <a href="/#portofoliu" class="btn btn-outline">More projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Alexandru Daniel Ghita / Timisoara / 2026</span>
+      <span class="footer-right">Laravel / Next.js / Python / AI</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 60 });
+
+    new Swiper('.swiper', {
+      loop: true,
+      autoplay: { delay: 4000, disableOnInteraction: true },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      speed: 500,
+    });
+  </script>
+</body>
+</html>
