@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InstaSista Case Study | Alexandru Ghita</title>
+  <meta name="description" content="Case study: Building a free AI-powered Instagram posting assistant with multi-tenant branding, Pexels backgrounds, and automated captions." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGD4Z726L2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGD4Z726L2');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <style>:root{--gold:#d4af37;}</style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="cs-topbar">
+    <div class="container cs-topbar-inner">
+      <a class="nav-logo" href="/">alexandru<span class="nav-dot">ghita</span></a>
+      <a class="cs-back" href="/#portofoliu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Back to portfolio
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="cs-hero">
+      <div class="container">
+        <span class="cs-badge" data-aos="fade-up">Case Study &middot; AI Agent / SaaS</span>
+        <h1 data-aos="fade-up" data-aos-delay="50">InstaSista</h1>
+        <p class="lead" data-aos="fade-up" data-aos-delay="100">A free AI-powered Instagram posting assistant that generates branded carousel posts with high-quality images and captions. Each tenant gets a fully customizable experience &mdash; from a company following strict brand guidelines to a hobbyist sharing knowledge about their passion.</p>
+        <div class="cs-hero-actions" data-aos="fade-up" data-aos-delay="150">
+          <a href="https://insta-poster-c6o5.onrender.com" target="_blank" rel="noopener" class="btn btn-primary">
+            View Live
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Screenshots <span class="section-sub">/ app walkthrough</span></h2>
+        <div class="cs-carousel" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="dashboard.webp" alt="InstaSista admin dashboard with topic input and generation options" />
+              </div>
+              <div class="swiper-slide">
+                <img src="slides.webp" alt="Generated Instagram carousel slide with AI background image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="caption.webp" alt="AI-generated caption and hashtags with copy button" />
+              </div>
+              <div class="swiper-slide">
+                <img src="client-login.webp" alt="Per-tenant branded login page for Cofetaria Trandafirul" />
+              </div>
+              <div class="swiper-slide">
+                <img src="generated.webp" alt="Full page view of generated post with slides and caption" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">The Challenge <span class="section-sub">/ why this exists</span></h2>
+        <div class="cs-problem-grid">
+          <div class="cs-card dark" data-aos="fade-up" data-aos-delay="50">
+            <h3>The Problem</h3>
+            <ul>
+              <li>Creating quality Instagram content takes hours &mdash; writing captions, designing slides, finding images, picking hashtags</li>
+              <li>Social media tools charge $20-50/month per brand, making them impractical for small businesses or hobbyists</li>
+              <li>Generic AI generators produce bland, off-brand content that doesn't match a company's tone or visual identity</li>
+              <li>Hobbyists and niche creators struggle to maintain consistent posting without a design or copywriting background</li>
+            </ul>
+          </div>
+          <div class="cs-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>The Solution</h3>
+            <ul>
+              <li>Type a topic, get a complete Instagram post in seconds &mdash; branded slides, ready-to-post caption, optimized hashtags</li>
+              <li>Each tenant gets their own branded portal with custom colors, fonts, logo, and tone of voice from a simple JSON config</li>
+              <li>AI follows brand guidelines automatically &mdash; audience, language, forbidden claims, required hashtags &mdash; like a trained social media manager</li>
+              <li>Pexels-powered background images matched to each slide's content, with dark/light mode and manual theme control</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Tech Stack <span class="section-sub">/ what powers it</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A pure Node.js application with zero framework dependencies. Gemini AI generates the content, Pexels provides images, and the entire multi-tenant system runs from simple JSON configuration files.</p>
+        <div class="cs-tech-grid">
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="50">
+            <h4>Runtime</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Node.js 22</span>
+              <span class="cs-tech-tag">Pure ESM</span>
+              <span class="cs-tech-tag">Zero frameworks</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="100">
+            <h4>AI Generation</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag free">Gemini API</span>
+              <span class="cs-tech-tag">Structured JSON output</span>
+              <span class="cs-tech-tag">Brand-aware prompts</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="150">
+            <h4>Images</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag free">Pexels API</span>
+              <span class="cs-tech-tag">AI keyword extraction</span>
+              <span class="cs-tech-tag">Portrait orientation</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="200">
+            <h4>Design System</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">HSL color palette generation</span>
+              <span class="cs-tech-tag">Dynamic CSS themes</span>
+              <span class="cs-tech-tag">Custom fonts per tenant</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="250">
+            <h4>Security</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Per-tenant auth tokens</span>
+              <span class="cs-tech-tag">Session cookies</span>
+              <span class="cs-tech-tag">Rate limiting</span>
+              <span class="cs-tech-tag">XSS prevention</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="300">
+            <h4>Hosting</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag free">Render</span>
+              <span class="cs-tech-tag">Instagram OAuth</span>
+              <span class="cs-tech-tag">Meta Graph API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-cost" data-aos="fade-up">
+          <div class="cs-cost-title">Monthly Infrastructure Cost</div>
+          <div class="cs-cost-amount">$0</div>
+          <div class="cs-cost-note">Free-tier services: Render + Gemini API + Pexels API + Meta Graph API</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">Key Features <span class="section-sub">/ what it does</span></h2>
+        <div class="cs-features-grid">
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="50">
+            <h3>Multi-Tenant Branding</h3>
+            <p>Each client gets a unique visual identity from a single JSON file &mdash; custom accent color, font, logo, tone of voice, audience definition, and hashtag strategy. The system auto-generates a 5-theme color palette from one hex value using HSL shifts.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="100">
+            <h3>AI Content Generation</h3>
+            <p>Gemini AI produces complete Instagram posts &mdash; carousel slides with headlines, stats, tips, and case studies, plus a full caption with hooks, CTAs, and optimized hashtags. The AI follows each brand's guidelines automatically.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="150">
+            <h3>Smart Background Images</h3>
+            <p>The AI generates a search keyword per slide based on the content. Pexels API fetches matching high-quality portrait photos as slide backgrounds, with a cinematic dark overlay to keep text readable.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="200">
+            <h3>Per-Tenant Client Portal</h3>
+            <p>Each tenant gets a branded URL (/c/clientId) with their own colors, font, and login. Clients can generate posts, connect Instagram, and export slides &mdash; without seeing other tenants.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="250">
+            <h3>Export-Ready Output</h3>
+            <p>Save individual slides or the entire carousel as high-resolution JPG files (1080&times;1350px). Copy the caption and hashtags with one click. Ready to paste directly into Instagram.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="300">
+            <h3>Instagram OAuth Connect</h3>
+            <p>Per-tenant Instagram account linking via Meta OAuth. Each client connects their own Instagram account for future automated posting and insights &mdash; tokens stored separately per tenant.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="350">
+            <h3>Flexible for Any Use Case</h3>
+            <p>A bakery posting about daily specials following strict brand guidelines. An AI educator sharing knowledge with a casual tone. A startup announcing features. One system, infinite brand voices &mdash; all from JSON config.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="400">
+            <h3>Visual Customization</h3>
+            <p>Dark/light background modes, 5 rotating color themes per brand, adjustable headline font size, theme selector per slide, and background pattern options (grid, dots, diagonal, noise, solid, image).</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="450">
+            <h3>Security Built-In</h3>
+            <p>Token-based tenant authentication with timing-safe comparison. Cookie sessions, in-memory rate limiting (10 gen/hour), XSS escaping on all AI output, CORS restriction, and input validation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Architecture <span class="section-sub">/ how it works</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A zero-dependency Node.js server that orchestrates AI generation, image search, and dynamic HTML rendering. Each tenant is a JSON file &mdash; no database required.</p>
+        <div class="cs-arch" data-aos="fade-up" data-aos-delay="100">
+          <h3>Generation Pipeline</h3>
+          <div class="cs-arch-flow">
+            <div class="cs-arch-step">
+              <strong>Topic Input</strong>
+              <span>User types subject</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Brand Context</strong>
+              <span>Merge tenant config</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Gemini AI</strong>
+              <span>Slides + caption JSON</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Pexels API</strong>
+              <span>Background per slide</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>HTML Render</strong>
+              <span>Themed carousel</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Export</strong>
+              <span>JPG + caption copy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cs-cta">
+      <div class="container">
+        <div class="cs-cta-box" data-aos="fade-up">
+          <div>
+            <h2>Like what you see?</h2>
+            <p>I build AI-powered tools and full-stack platforms from scratch &mdash; Node.js, AI APIs, multi-tenant architecture, zero monthly cost. Let's talk about your project.</p>
+          </div>
+          <div class="cs-cta-actions">
+            <a href="mailto:holla@alexandrughita.eu" class="btn btn-primary">Get in touch</a>
+            <a href="/#portofoliu" class="btn btn-outline">More projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Alexandru Daniel Ghita / Timisoara / 2026</span>
+      <span class="footer-right">Node.js / Gemini AI / Multi-tenant / Pexels</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 60 });
+
+    new Swiper('.swiper', {
+      loop: true,
+      autoplay: { delay: 4000, disableOnInteraction: true },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      speed: 500,
+    });
+  </script>
+</body>
+</html>
