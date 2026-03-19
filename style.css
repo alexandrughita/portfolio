@@ -745,6 +745,55 @@ h1 {
 
 /* ── Contact ───────────────────────────────────────────────── */
 
+/* ── FAQ ─────────────────────────────────────────────── */
+.faq { padding: 96px 0; background: var(--bg); }
+
+.faq .section-heading { margin-bottom: 40px; }
+
+.faq-list { max-width: 720px; display: flex; flex-direction: column; gap: 4px; }
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  padding: 18px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+
+.faq-item[open] summary::after { transform: rotate(45deg); }
+
+.faq-item p {
+  padding: 0 22px 18px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
 .contact { padding: 96px 0 112px; }
 
 .contact .section-heading { margin-bottom: 16px; }
@@ -1330,7 +1379,7 @@ nav.home { display: flex; }
 
   .hero-content { padding: 96px 0 72px; }
 
-  .servicii, .despre, .experience, .contact {
+  .servicii, .despre, .experience, .faq, .contact {
     padding: 64px 0;
   }
 
