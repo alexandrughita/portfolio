@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Portal Case Study | Alexandru Ghita</title>
+  <meta name="description" content="Case study: Building a secure document management portal for construction companies — granular three-level access control, secure file delivery, queued email notifications, and per-client brand theming." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGD4Z726L2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGD4Z726L2');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <style>:root{--gold:#1e293b;}</style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="cs-topbar">
+    <div class="container cs-topbar-inner">
+      <a class="nav-logo" href="/">alexandru<span class="nav-dot">ghita</span></a>
+      <a class="cs-back" href="/#portofoliu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Back to portfolio
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="cs-hero">
+      <div class="container">
+        <span class="cs-badge" data-aos="fade-up">Case Study &middot; B2B Web App</span>
+        <h1 data-aos="fade-up" data-aos-delay="50">Document Portal</h1>
+        <p class="lead" data-aos="fade-up" data-aos-delay="100">A secure document management portal built for construction companies to share project files with clients, subcontractors, and consultants &mdash; with granular three-level access control, secure file delivery, queued email notifications, and per-deployment brand theming.</p>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Screenshots <span class="section-sub">/ app walkthrough</span></h2>
+        <div class="cs-carousel" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="dashboard.webp" alt="Document Portal — user dashboard with accessible projects" />
+              </div>
+              <div class="swiper-slide">
+                <img src="project.webp" alt="Document Portal — project view with folders and documents" />
+              </div>
+              <div class="swiper-slide">
+                <img src="access.webp" alt="Document Portal — granular access management with project/folder/file tabs" />
+              </div>
+              <div class="swiper-slide">
+                <img src="users.webp" alt="Document Portal — user management with roles and active/inactive toggle" />
+              </div>
+              <div class="swiper-slide">
+                <img src="logs.webp" alt="Document Portal — document access log with view and download events" />
+              </div>
+              <div class="swiper-slide">
+                <img src="login.webp" alt="Document Portal — login page" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">The Challenge <span class="section-sub">/ why this exists</span></h2>
+        <div class="cs-problem-grid">
+          <div class="cs-card dark" data-aos="fade-up" data-aos-delay="50">
+            <h3>The Problem</h3>
+            <ul>
+              <li>Construction projects involve multiple parties &mdash; clients, subcontractors, consultants &mdash; each needing access to different documents</li>
+              <li>Sharing files via email or Dropbox offers no access control: anyone with a link can see everything</li>
+              <li>Generic cloud storage doesn't support role-based access at the folder or individual file level</li>
+              <li>No audit trail: companies can't know who viewed or downloaded which document, and when</li>
+            </ul>
+          </div>
+          <div class="cs-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>The Solution</h3>
+            <ul>
+              <li>A dedicated portal where each user sees only the projects, folders, and files they're explicitly granted access to</li>
+              <li>Three-level access hierarchy: full project, specific folders, or individual files &mdash; with per-permission flags for view, download, and notifications</li>
+              <li>All files served through the controller &mdash; never exposed as public URLs &mdash; so access checks run on every request</li>
+              <li>Full audit log of every view and download event, with IP address and user agent</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Tech Stack <span class="section-sub">/ what powers it</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A clean Laravel 11 monolith with Blade + Alpine.js, deployed to standard shared PHP hosting on SiteGround. SQLite for development, MySQL for production. Each client gets their own installation and domain.</p>
+        <div class="cs-tech-grid">
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="50">
+            <h4>Backend</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Laravel 11</span>
+              <span class="cs-tech-tag">PHP 8.4</span>
+              <span class="cs-tech-tag">Queued Jobs</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="100">
+            <h4>Frontend</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Tailwind CSS v4</span>
+              <span class="cs-tech-tag">Alpine.js</span>
+              <span class="cs-tech-tag">Blade Templates</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="150">
+            <h4>Database</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">SQLite (dev)</span>
+              <span class="cs-tech-tag">MySQL (prod)</span>
+              <span class="cs-tech-tag">Database Sessions</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="200">
+            <h4>File Storage</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Local (private)</span>
+              <span class="cs-tech-tag">AWS S3 (optional)</span>
+              <span class="cs-tech-tag">Controller-served</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="250">
+            <h4>Hosting</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">SiteGround</span>
+              <span class="cs-tech-tag">Per-client deploy</span>
+              <span class="cs-tech-tag">Cron queue worker</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="300">
+            <h4>Auth &amp; Security</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Session-based auth</span>
+              <span class="cs-tech-tag">Role middleware</span>
+              <span class="cs-tech-tag">Active user enforcement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">Key Features <span class="section-sub">/ what it does</span></h2>
+        <div class="cs-features-grid">
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="50">
+            <h3>Three-Level Access Control</h3>
+            <p>Grant access at the full project level, specific folders, or individual files. Each level has its own permission flags: can view, can download, notify on new upload. When saving, lower-level records are cleared automatically to keep access clean.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="100">
+            <h3>Secure File Delivery</h3>
+            <p>Files are stored outside the public directory and never accessible via direct URL. Every view or download request goes through the controller, which checks access before serving the file. Switching to S3 requires only an env variable change.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="150">
+            <h3>Role System</h3>
+            <p>Five roles: admin (full system access), staff (can upload, limited admin panel), subtrade, consultant, owner (access via access records only). Role middleware protects routes. Inactive users are kicked out on every request.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="200">
+            <h3>Folder Hierarchy</h3>
+            <p>Projects have nested folder structures with parent/child relationships and sort order. Admins can create, rename, and delete folders. Users see only the folders they have access to.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="250">
+            <h3>Document Upload</h3>
+            <p>Upload PDF, DOCX, XLSX, DWG, PNG, JPG files up to 51MB. Files are stored with a project-scoped path. On upload, a queued notification job emails all users with notify permissions for that project.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="300">
+            <h3>Email Notifications</h3>
+            <p>When a document is uploaded, a queued job dispatches email notifications to all users with notify_on_new_document enabled at the project level. Queue runs via database driver &mdash; no Redis needed, cron-triggered on SiteGround.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="350">
+            <h3>Access Audit Log</h3>
+            <p>Every view and download is logged with user, document, action, IP address, and user agent. Admins have a dedicated log viewer to track who accessed what and when.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="400">
+            <h3>Per-Client Brand Theming</h3>
+            <p>Each client deployment has its own brand color set via APP_COLOR in .env. The color is injected as a CSS custom property at runtime &mdash; no asset rebuild required. Navigation, buttons, and badges all pick up the brand color automatically.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="450">
+            <h3>User Management</h3>
+            <p>Admin CRUD for users with role assignment and active/inactive toggle. Deactivated users are immediately locked out on their next request via middleware. Last login time is tracked per user.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="500">
+            <h3>Multi-Tenant by Design</h3>
+            <p>Each client gets a completely separate Laravel installation on their own domain or subdomain &mdash; no shared database, full data isolation. Setting up a new client means cloning the repo, configuring .env, and seeding their admin user.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Architecture <span class="section-sub">/ how it works</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A classic Laravel monolith with Blade views and Alpine.js for interactivity. The AccessService centralizes all access decisions through static methods used across controllers and views.</p>
+        <div class="cs-arch" data-aos="fade-up" data-aos-delay="100">
+          <h3>Document Download Flow</h3>
+          <div class="cs-arch-flow">
+            <div class="cs-arch-step">
+              <strong>User Request</strong>
+              <span>GET /documents/{id}/download</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Auth Check</strong>
+              <span>Session + active user</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>AccessService</strong>
+              <span>Project / folder / file check</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Access Log</strong>
+              <span>IP + UA recorded</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>File Response</strong>
+              <span>Served from storage</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-arch" data-aos="fade-up" data-aos-delay="150" style="margin-top:24px;">
+          <h3>Upload &amp; Notification Flow</h3>
+          <div class="cs-arch-flow">
+            <div class="cs-arch-step">
+              <strong>Admin Upload</strong>
+              <span>POST /projects/{id}/documents</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Store File</strong>
+              <span>storage/app/documents/</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Dispatch Job</strong>
+              <span>NotifyNewDocument queued</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Queue Worker</strong>
+              <span>Cron on SiteGround</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Email</strong>
+              <span>Notifiable users</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cs-cta">
+      <div class="container">
+        <div class="cs-cta-box" data-aos="fade-up">
+          <div>
+            <h2>Like what you see?</h2>
+            <p>I build production-ready B2B web apps &mdash; secure file management, role-based access, multi-tenant architecture, Laravel, deployed to real hosting. Let's talk about your project.</p>
+          </div>
+          <div class="cs-cta-actions">
+            <a href="mailto:holla@alexandrughita.eu" class="btn btn-primary">Get in touch</a>
+            <a href="/#portofoliu" class="btn btn-outline">More projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Alexandru Daniel Ghita / Timisoara / 2026</span>
+      <span class="footer-right">Laravel / PHP / Tailwind CSS / Alpine.js</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 60 });
+
+    new Swiper('.swiper', {
+      loop: true,
+      autoplay: { delay: 4000, disableOnInteraction: true },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      speed: 500,
+    });
+  </script>
+</body>
+</html>
