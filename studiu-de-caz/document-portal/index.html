@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document Portal Case Study | Alexandru Ghita</title>
-  <meta name="description" content="Case study: Building a secure document management portal for construction companies — granular three-level access control, secure file delivery, queued email notifications, and per-client brand theming." />
+  <meta name="description" content="Case study: Building a secure document management portal for construction companies — granular three-level access control, restricted folders, document versioning, read receipts, queued email notifications, and per-client brand theming." />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGD4Z726L2"></script>
   <script>
@@ -41,7 +41,7 @@
       <div class="container">
         <span class="cs-badge" data-aos="fade-up">Case Study &middot; B2B Web App</span>
         <h1 data-aos="fade-up" data-aos-delay="50">Document Portal</h1>
-        <p class="lead" data-aos="fade-up" data-aos-delay="100">A secure document management portal built for construction companies to share project files with clients, subcontractors, and consultants &mdash; with granular three-level access control, secure file delivery, queued email notifications, and per-deployment brand theming.</p>
+        <p class="lead" data-aos="fade-up" data-aos-delay="100">A secure document management portal built for construction companies to share project files with clients, subcontractors, and consultants &mdash; with granular three-level access control, restricted folders, document versioning, read receipts, queued email notifications, and per-deployment brand theming.</p>
       </div>
     </section>
 
@@ -53,19 +53,28 @@
           <div class="swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="dashboard.webp" alt="Document Portal — user dashboard with accessible projects" />
+                <img src="dashboard.webp" alt="Document Portal — user dashboard with active and archived job cards" />
               </div>
               <div class="swiper-slide">
-                <img src="access.webp" alt="Document Portal — granular access management with project/folder/file tabs" />
+                <img src="project.webp" alt="Document Portal — project view with folder sidebar, document list, upload form, and PM info" />
               </div>
               <div class="swiper-slide">
-                <img src="users.webp" alt="Document Portal — user management with roles and active/inactive toggle" />
+                <img src="access.webp" alt="Document Portal — granular access management with project/folder/file tabs and restricted folder warning" />
+              </div>
+              <div class="swiper-slide">
+                <img src="receipts.webp" alt="Document Portal — read receipts per project showing who has viewed each document" />
+              </div>
+              <div class="swiper-slide">
+                <img src="users.webp" alt="Document Portal — user management with roles, active status, and last login" />
               </div>
               <div class="swiper-slide">
                 <img src="logs.webp" alt="Document Portal — document access log with view and download events" />
               </div>
               <div class="swiper-slide">
-                <img src="login.webp" alt="Document Portal — login page" />
+                <img src="help.webp" alt="Document Portal — Help / FAQ page with admin-editable accordion content" />
+              </div>
+              <div class="swiper-slide">
+                <img src="login.webp" alt="Document Portal — branded login page for Knudsen Construction" />
               </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -107,13 +116,13 @@
     <section class="cs-section alt">
       <div class="container">
         <h2 data-aos="fade-up">Tech Stack <span class="section-sub">/ what powers it</span></h2>
-        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A clean Laravel 11 monolith with Blade + Alpine.js, deployed to standard shared PHP hosting on SiteGround. SQLite for development, MySQL for production. Each client gets their own installation and domain.</p>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A clean Laravel 13 monolith with Blade + Alpine.js, deployed to standard shared PHP hosting on SiteGround. SQLite for development, MySQL for production. Each client gets their own installation and domain.</p>
         <div class="cs-tech-grid">
           <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="50">
             <h4>Backend</h4>
             <div class="cs-tech-tags">
-              <span class="cs-tech-tag">Laravel 11</span>
-              <span class="cs-tech-tag">PHP 8.4</span>
+              <span class="cs-tech-tag">Laravel 13</span>
+              <span class="cs-tech-tag">PHP 8.3+</span>
               <span class="cs-tech-tag">Queued Jobs</span>
             </div>
           </div>
@@ -168,7 +177,7 @@
         <div class="cs-features-grid">
           <div class="cs-feature" data-aos="fade-up" data-aos-delay="50">
             <h3>Three-Level Access Control</h3>
-            <p>Grant access at the full project level, specific folders, or individual files. Each level has its own permission flags: can view, can download, notify on new upload. When saving, lower-level records are cleared automatically to keep access clean.</p>
+            <p>Grant access at the full project level, specific folders, or individual files. Each level has its own permission flags: can view, can download, notify on new upload. When saving, lower-level records are cleared automatically to keep access clean. A quick-assign button grants a subtrade access to all non-restricted folders in one click.</p>
           </div>
           <div class="cs-feature" data-aos="fade-up" data-aos-delay="100">
             <h3>Secure File Delivery</h3>
@@ -179,32 +188,44 @@
             <p>Five roles: admin (full system access), staff (can upload, limited admin panel), subtrade, consultant, owner (access via access records only). Role middleware protects routes. Inactive users are kicked out on every request.</p>
           </div>
           <div class="cs-feature" data-aos="fade-up" data-aos-delay="200">
-            <h3>Folder Hierarchy</h3>
-            <p>Projects have nested folder structures with parent/child relationships and sort order. Admins can create, rename, and delete folders. Users see only the folders they have access to.</p>
+            <h3>Folder Hierarchy &amp; Restricted Folders</h3>
+            <p>Projects have nested folder structures with parent/child relationships and sort order. Folders can be marked as restricted &mdash; blocking all non-admin roles from seeing them via project-level access. The Financials folder is restricted by default; a subtrade or owner can only access it if explicitly granted folder-level access by an admin.</p>
           </div>
           <div class="cs-feature" data-aos="fade-up" data-aos-delay="250">
-            <h3>Document Upload</h3>
-            <p>Upload PDF, DOCX, XLSX, DWG, PNG, JPG files up to 51MB. Files are stored with a project-scoped path. On upload, a queued notification job emails all users with notify permissions for that project.</p>
+            <h3>Document Upload &amp; Replace</h3>
+            <p>Upload multiple files in one go with a per-file note shown in the doc list and in notification emails. Replacing a document keeps the display name intact and records a revision string (e.g. "Rev B") as a visible badge &mdash; so the document history stays clean. Replacing fires the same notification as a new upload.</p>
           </div>
           <div class="cs-feature" data-aos="fade-up" data-aos-delay="300">
             <h3>Email Notifications</h3>
-            <p>When a document is uploaded, a queued job dispatches email notifications to all users with notify_on_new_document enabled at the project level. Queue runs via database driver &mdash; no Redis needed, cron-triggered on SiteGround.</p>
+            <p>Upload or replace a document and a queued job emails every user with access at the project, folder, or file level. The uploader is excluded from their own notification. Queue runs via database driver &mdash; no Redis needed, cron-triggered on SiteGround.</p>
           </div>
           <div class="cs-feature" data-aos="fade-up" data-aos-delay="350">
-            <h3>Access Audit Log</h3>
-            <p>Every view and download is logged with user, document, action, IP address, and user agent. Admins have a dedicated log viewer to track who accessed what and when.</p>
+            <h3>Read Receipts</h3>
+            <p>Per-project read-receipt view shows exactly which documents each user has opened and how many downloads they've made. Admins can see at a glance who hasn't opened a file yet &mdash; useful for chasing sign-offs on critical documents.</p>
           </div>
           <div class="cs-feature" data-aos="fade-up" data-aos-delay="400">
+            <h3>Access Audit Log</h3>
+            <p>Every view and download is logged with user, document, action, IP address, and user agent. Admins have a dedicated log viewer with CSV export to track who accessed what and when.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="450">
+            <h3>ZIP Project Closeout</h3>
+            <p>One-click ZIP download of all documents in a project, preserving the folder structure. Useful for archiving completed jobs or handing off the full document set to the client at closeout.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="500">
             <h3>Per-Client Brand Theming</h3>
             <p>Each client deployment has its own brand color set via APP_COLOR in .env. The color is injected as a CSS custom property at runtime &mdash; no asset rebuild required. Navigation, buttons, and badges all pick up the brand color automatically.</p>
           </div>
-          <div class="cs-feature" data-aos="fade-up" data-aos-delay="450">
-            <h3>User Management</h3>
-            <p>Admin CRUD for users with role assignment and active/inactive toggle. Deactivated users are immediately locked out on their next request via middleware. Last login time is tracked per user.</p>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="550">
+            <h3>Help / FAQ CMS</h3>
+            <p>Admins can edit the Help page directly from the admin panel &mdash; add, remove, and reorder FAQ items without touching code. Content is stored in the settings table as JSON and rendered as an accordion for end users.</p>
           </div>
-          <div class="cs-feature" data-aos="fade-up" data-aos-delay="500">
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="600">
+            <h3>User Management</h3>
+            <p>Admin CRUD for users with role assignment, company, phone, and active/inactive toggle. Deactivated users are immediately locked out on their next request via middleware. Last login time is tracked per user.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="650">
             <h3>Multi-Tenant by Design</h3>
-            <p>Each client gets a completely separate Laravel installation on their own domain or subdomain &mdash; no shared database, full data isolation. Setting up a new client means cloning the repo, configuring .env, and seeding their admin user.</p>
+            <p>Each client gets a completely separate Laravel installation on their own domain or subdomain &mdash; no shared database, full data isolation. Setting up a new client means cloning the repo, configuring .env with their brand color and name, and seeding their admin user.</p>
           </div>
         </div>
       </div>
@@ -297,7 +318,7 @@
   <footer>
     <div class="container footer-inner">
       <span>Alexandru Daniel Ghita / Timisoara / 2026</span>
-      <span class="footer-right">Laravel / PHP / Tailwind CSS / Alpine.js</span>
+      <span class="footer-right">Laravel 13 / PHP / Tailwind CSS / Alpine.js</span>
     </div>
   </footer>
 
