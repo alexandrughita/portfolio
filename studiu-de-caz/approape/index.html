@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>approape.ro Case Study | Alexandru Ghita</title>
+  <meta name="description" content="Case study: Building a location-based listings platform for the Romanian market with React 19, Firebase and Vercel Edge, with 2,000+ statically generated, SEO-ready pages." />
+  <meta name="robots" content="noindex, follow" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGD4Z726L2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGD4Z726L2');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <style>:root{--gold:#e8374a;}</style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="cs-topbar">
+    <div class="container cs-topbar-inner">
+      <a class="nav-logo" href="/">alexandru<span class="nav-dot">ghita</span></a>
+      <a class="cs-back" href="/#portofoliu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Back to portfolio
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="cs-hero">
+      <div class="container">
+        <span class="cs-badge" data-aos="fade-up">Case Study &middot; Marketplace Platform</span>
+        <h1 data-aos="fade-up" data-aos-delay="50">approape.ro</h1>
+        <p class="lead" data-aos="fade-up" data-aos-delay="100">A location-based listings platform for the Romanian adult market: 2,000+ profiles across 100+ cities, a map and list browse, profile pages, ratings, private albums and a creator feed. Built on React and Firebase, with every important page pre-rendered for search engines.</p>
+        <div class="cs-hero-actions" data-aos="fade-up" data-aos-delay="150">
+          <a href="https://www.approape.ro/iasi" target="_blank" rel="noopener" class="btn btn-primary">
+            View Live
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">The Challenge <span class="section-sub">/ why this exists</span></h2>
+        <div class="cs-problem-grid">
+          <div class="cs-card dark" data-aos="fade-up" data-aos-delay="50">
+            <h3>The Problem</h3>
+            <ul>
+              <li>Existing Romanian listing sites are dated, slow on mobile and full of duplicate or fake profiles</li>
+              <li>A single-page React app is close to invisible to search engines, and organic search is the main way people find this kind of site</li>
+              <li>Thousands of profile pages change all the time, and a fully static site goes stale the moment someone edits one</li>
+              <li>Visitors need a way to judge trust (verification, ratings) without the platform becoming a target for fake reviews</li>
+            </ul>
+          </div>
+          <div class="cs-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>The Solution</h3>
+            <ul>
+              <li>A mobile-first PWA with map and list browse, city, service and seasonal landing pages</li>
+              <li>Build-time static generation for every profile and city page, with a shared SEO manifest so each page's head is defined only once</li>
+              <li>Edge middleware that serves a live render only for the profiles edited since the last build</li>
+              <li>Ratings that only engaged visitors can leave, aggregated server-side so nobody can forge a score</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">Tech Stack <span class="section-sub">/ what powers it</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">A React SPA on Vercel backed by Firebase, with a build pipeline that turns one Firestore snapshot into sitemaps, structured data and a few thousand crawlable HTML pages.</p>
+        <div class="cs-tech-grid">
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="50">
+            <h4>Frontend</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">React 19</span>
+              <span class="cs-tech-tag">TypeScript</span>
+              <span class="cs-tech-tag">Vite 6</span>
+              <span class="cs-tech-tag">Tailwind CSS v4</span>
+              <span class="cs-tech-tag">PWA</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="100">
+            <h4>Auth</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Firebase Auth</span>
+              <span class="cs-tech-tag">Google Sign-In</span>
+              <span class="cs-tech-tag">Telegram Login</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="150">
+            <h4>Data</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Cloud Firestore</span>
+              <span class="cs-tech-tag">Security Rules</span>
+              <span class="cs-tech-tag">Cloud Storage</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="200">
+            <h4>Backend</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Cloud Functions v2</span>
+              <span class="cs-tech-tag">Vercel Serverless</span>
+              <span class="cs-tech-tag">Vercel Edge Middleware</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="250">
+            <h4>SEO Pipeline</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Static generation</span>
+              <span class="cs-tech-tag">JSON-LD</span>
+              <span class="cs-tech-tag">Sitemaps</span>
+              <span class="cs-tech-tag">esbuild</span>
+            </div>
+          </div>
+          <div class="cs-tech-card" data-aos="fade-up" data-aos-delay="300">
+            <h4>Maps & Analytics</h4>
+            <div class="cs-tech-tags">
+              <span class="cs-tech-tag">Leaflet</span>
+              <span class="cs-tech-tag">Nominatim</span>
+              <span class="cs-tech-tag">GA4</span>
+              <span class="cs-tech-tag">Search Console</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="cs-section alt">
+      <div class="container">
+        <h2 data-aos="fade-up">Key Features <span class="section-sub">/ what it does</span></h2>
+        <div class="cs-features-grid">
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="50">
+            <h3>Crawlable City Pages</h3>
+            <p>Each city with enough listings gets a pre-rendered page with real profile cards, breadcrumb, FAQ and ItemList schema. Cities below the threshold are noindexed and left out of the sitemap, so thin pages never get indexed.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="100">
+            <h3>Fresh Static Profiles</h3>
+            <p>Profile pages are static files, so they load instantly. The edge middleware keeps a list of profiles edited since the build, refreshed every minute, and serves only those from a live renderer. Every other request gets the static file.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="150">
+            <h3>Tamper-Proof Ratings</h3>
+            <p>A 1-10 rating with three optional dimensions. Only visitors who actually made contact can rate. A Cloud Function recomputes the aggregate and enforces a daily cap, so the score can't be forged from the client.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="200">
+            <h3>"Top Girls" Ranking</h3>
+            <p>One scoring module ranks profiles by ratings, completeness, verification, referrals and activity. The same module drives the homepage row, the map's z-order and an owner-only breakdown that shows each person how to climb the ranking.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="250">
+            <h3>Private Albums & Feed</h3>
+            <p>Creators publish a feed and a private album. Access requests go through an approve/reject flow, and the Firestore rules are the only gatekeeper: the UI just attempts the read.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="300">
+            <h3>Video Verification</h3>
+            <p>In-browser face-landmark detection asks the person to turn their head, measured from the nose tip relative to both eyes so the check works at any distance from the camera.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="350">
+            <h3>Consent-Free Contact Analytics</h3>
+            <p>A first-party log of phone, WhatsApp and Telegram taps, tagged with traffic source. It stores no IP, user agent or client storage, so it doesn't need cookie consent and counts the contacts GA4 misses.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="400">
+            <h3>SEO Audit in CI</h3>
+            <p>A build step compares every generated page against the SEO manifest and the sitemaps. It flags duplicate titles, missing schema, broken internal links, orphan pages and any head that drifted from its definition.</p>
+          </div>
+          <div class="cs-feature" data-aos="fade-up" data-aos-delay="450">
+            <h3>Admin & Moderation</h3>
+            <p>A paginated admin dashboard for profiles, reports, ratings, feedback and contact analytics, with an owner dashboard rebuilt as a scored checklist of steps to complete a profile.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="cs-section">
+      <div class="container">
+        <h2 data-aos="fade-up">Architecture <span class="section-sub">/ how it works</span></h2>
+        <p class="cs-section-intro" data-aos="fade-up" data-aos-delay="50">Every build reads Firestore once and writes a data snapshot. Every generator (sitemaps, landing pages, profile pages, structured data) reads from that snapshot, so no two pages can disagree about a profile.</p>
+        <div class="cs-arch" data-aos="fade-up" data-aos-delay="100">
+          <h3>Build & Request Pipeline</h3>
+          <div class="cs-arch-flow">
+            <div class="cs-arch-step">
+              <strong>Firestore</strong>
+              <span>One snapshot per build</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>SEO Data Job</strong>
+              <span>Manifest + relations</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Generators</strong>
+              <span>HTML, JSON-LD, sitemaps</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>SEO Audit</strong>
+              <span>Fails on drift</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Edge Middleware</strong>
+              <span>Static or live render</span>
+            </div>
+            <span class="cs-arch-arrow">&rarr;</span>
+            <div class="cs-arch-step">
+              <strong>Visitor / Crawler</strong>
+              <span>Same HTML for both</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cs-cta">
+      <div class="container">
+        <div class="cs-cta-box" data-aos="fade-up">
+          <div>
+            <h2>Like what you see?</h2>
+            <p>I build marketplaces and SaaS platforms end to end: React, Firebase, edge rendering and technical SEO. Let's talk about your project.</p>
+          </div>
+          <div class="cs-cta-actions">
+            <a href="mailto:holla@alexandrughita.eu" class="btn btn-primary">Get in touch</a>
+            <a href="/#portofoliu" class="btn btn-outline">More projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Alexandru Daniel Ghita / Timisoara / 2026</span>
+      <span class="footer-right">Laravel / Next.js / Python / AI</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 60 });
+  </script>
+</body>
+</html>
